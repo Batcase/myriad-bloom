@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "top": "myriadbloom:block/giant_chest_top",
+    "side": "myriadbloom:block/giant_chest_side",
+    "bottom": "myriadbloom:block/giant_chest_top"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "top": "myriadbloom:block/candy_grass_block_top",
+    "side": "myriadbloom:block/candy_grass_block_side",
+    "bottom": "myriadbloom:block/candy_wafer",
+    "particle": "myriadbloom:block/candy_grass_block_side"
+  }
+}

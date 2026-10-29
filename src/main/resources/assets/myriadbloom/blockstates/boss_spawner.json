@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "myriadbloom:block/boss_spawner"
+    }
+  }
+}

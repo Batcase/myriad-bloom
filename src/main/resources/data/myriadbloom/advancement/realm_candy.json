@@ -1,0 +1,23 @@
+{
+  "display": {
+    "icon": {
+      "item": "myriadbloom:candy_portal"
+    },
+    "title": {
+      "translate": "advancement.myriadbloom.realm_candy"
+    },
+    "description": {
+      "translate": "advancement.myriadbloom.realm_candy.desc"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "entered": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "parent": "myriadbloom:realm_frost"
+}

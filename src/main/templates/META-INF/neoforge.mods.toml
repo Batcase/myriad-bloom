@@ -1,0 +1,33 @@
+modLoader = "javafml"
+loaderVersion = "${loader_version_range}"
+license = "${mod_license}"
+
+[[mods]]
+modId = "${mod_id}"
+version = "${mod_version}"
+displayName = "千花万境 (Myriad Bloom)"
+authors = "白鸟"
+description = '''
+千花万境 (Myriad Bloom) - a cross-dimension mod: build a snow-and-water frame, throw a diamond into the water,
+and step through into the Frost Realm - a mirror of the overworld where the clock is
+frozen in the afternoon and every biome has turned to ice and snow. From there, light a
+frost honey doorway with candy syrup to reach the Candy Dimension: midnight under a pink
+sky, hills of candy and jelly, and syrup where the seas used to be.
+'''
+
+[[mixins]]
+config = "${mod_id}.mixins.json"
+
+[[dependencies.${mod_id}]]
+modId = "neoforge"
+type = "required"
+versionRange = "[${neo_version},)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.${mod_id}]]
+modId = "minecraft"
+type = "required"
+versionRange = "${minecraft_version_range}"
+ordering = "NONE"
+side = "BOTH"

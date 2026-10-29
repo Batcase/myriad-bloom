@@ -1,0 +1,13 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:fire",
+    "minecraft:campfire",
+    "minecraft:lava",
+    "minecraft:magma_block",
+    "minecraft:furnace",
+    "minecraft:blast_furnace",
+    "minecraft:smoker",
+    "myriadbloom:ember_ore"
+  ]
+}

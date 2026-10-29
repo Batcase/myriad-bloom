@@ -1,0 +1,23 @@
+{
+  "display": {
+    "icon": {
+      "item": "myriadbloom:thin_ice"
+    },
+    "title": {
+      "translate": "advancement.myriadbloom.chill"
+    },
+    "description": {
+      "translate": "advancement.myriadbloom.chill.desc"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "done": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "parent": "myriadbloom:frost_root"
+}

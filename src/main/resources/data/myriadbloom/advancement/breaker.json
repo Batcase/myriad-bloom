@@ -1,0 +1,30 @@
+{
+  "display": {
+    "icon": {
+      "item": "myriadbloom:congealed_ice"
+    },
+    "title": {
+      "translate": "advancement.myriadbloom.breaker"
+    },
+    "description": {
+      "translate": "advancement.myriadbloom.breaker.desc"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "got": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "myriadbloom:congealed_ice"
+          }
+        ]
+      }
+    }
+  },
+  "parent": "myriadbloom:lucky"
+}

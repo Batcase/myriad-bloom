@@ -1,0 +1,181 @@
+{
+  "elements": [
+    {
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "location": "minecraft:village/common/animals/cat_black",
+        "processors": {
+          "processors": [
+            {
+              "processor_type": "myriadbloom:frosty_village",
+              "probability": 0.4,
+              "villager_removal_chance": 0.9
+            }
+          ]
+        },
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "location": "minecraft:village/common/animals/cat_british",
+        "processors": {
+          "processors": [
+            {
+              "processor_type": "myriadbloom:frosty_village",
+              "probability": 0.4,
+              "villager_removal_chance": 0.9
+            }
+          ]
+        },
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "location": "minecraft:village/common/animals/cat_calico",
+        "processors": {
+          "processors": [
+            {
+              "processor_type": "myriadbloom:frosty_village",
+              "probability": 0.4,
+              "villager_removal_chance": 0.9
+            }
+          ]
+        },
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "location": "minecraft:village/common/animals/cat_persian",
+        "processors": {
+          "processors": [
+            {
+              "processor_type": "myriadbloom:frosty_village",
+              "probability": 0.4,
+              "villager_removal_chance": 0.9
+            }
+          ]
+        },
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "location": "minecraft:village/common/animals/cat_ragdoll",
+        "processors": {
+          "processors": [
+            {
+              "processor_type": "myriadbloom:frosty_village",
+              "probability": 0.4,
+              "villager_removal_chance": 0.9
+            }
+          ]
+        },
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "location": "minecraft:village/common/animals/cat_red",
+        "processors": {
+          "processors": [
+            {
+              "processor_type": "myriadbloom:frosty_village",
+              "probability": 0.4,
+              "villager_removal_chance": 0.9
+            }
+          ]
+        },
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "location": "minecraft:village/common/animals/cat_siamese",
+        "processors": {
+          "processors": [
+            {
+              "processor_type": "myriadbloom:frosty_village",
+              "probability": 0.4,
+              "villager_removal_chance": 0.9
+            }
+          ]
+        },
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "location": "minecraft:village/common/animals/cat_tabby",
+        "processors": {
+          "processors": [
+            {
+              "processor_type": "myriadbloom:frosty_village",
+              "probability": 0.4,
+              "villager_removal_chance": 0.9
+            }
+          ]
+        },
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "location": "minecraft:village/common/animals/cat_white",
+        "processors": {
+          "processors": [
+            {
+              "processor_type": "myriadbloom:frosty_village",
+              "probability": 0.4,
+              "villager_removal_chance": 0.9
+            }
+          ]
+        },
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "location": "minecraft:village/common/animals/cat_jellie",
+        "processors": {
+          "processors": [
+            {
+              "processor_type": "myriadbloom:frosty_village",
+              "probability": 0.4,
+              "villager_removal_chance": 0.9
+            }
+          ]
+        },
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:empty_pool_element"
+      },
+      "weight": 3
+    }
+  ],
+  "fallback": "minecraft:empty"
+}

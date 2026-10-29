@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "myriadbloom:block/thin_ice"
+  },
+  "render_type": "minecraft:translucent"
+}

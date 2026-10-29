@@ -1,0 +1,23 @@
+{
+  "display": {
+    "icon": {
+      "item": "myriadbloom:time_sand"
+    },
+    "title": {
+      "translate": "advancement.myriadbloom.timesong"
+    },
+    "description": {
+      "translate": "advancement.myriadbloom.timesong.desc"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "done": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "parent": "myriadbloom:prism"
+}

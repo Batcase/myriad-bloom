@@ -1,0 +1,28 @@
+{
+  "display": {
+    "icon": {
+      "item": "myriadbloom:carnivorous_rabbit_spawn_egg"
+    },
+    "title": {
+      "translate": "advancement.myriadbloom.candy_rabbit"
+    },
+    "description": {
+      "translate": "advancement.myriadbloom.candy_rabbit.desc"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "kill": {
+      "trigger": "minecraft:player_killed_entity",
+      "conditions": {
+        "entity": {
+          "type": "myriadbloom:carnivorous_rabbit"
+        }
+      }
+    }
+  },
+  "parent": "myriadbloom:candy_root"
+}

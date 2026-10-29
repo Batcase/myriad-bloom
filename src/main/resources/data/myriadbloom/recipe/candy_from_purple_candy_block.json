@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "candy_from_block",
+  "ingredients": [
+    {
+      "item": "myriadbloom:purple_candy_block"
+    }
+  ],
+  "result": {
+    "id": "myriadbloom:candy",
+    "count": 4
+  }
+}

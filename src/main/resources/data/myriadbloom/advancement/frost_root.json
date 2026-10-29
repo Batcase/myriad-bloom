@@ -1,0 +1,22 @@
+{
+  "display": {
+    "icon": {
+      "item": "myriadbloom:glacier_ice"
+    },
+    "title": {
+      "translate": "advancement.myriadbloom.frost_root"
+    },
+    "description": {
+      "translate": "advancement.myriadbloom.frost_root.desc"
+    },
+    "frame": "task",
+    "show_toast": false,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "arrived": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

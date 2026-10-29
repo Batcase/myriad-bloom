@@ -1,0 +1,9 @@
+{
+  "type": "myriadbloom:snow_fortress",
+  "biomes": [
+    "myriadbloom:frost_snowy_plains"
+  ],
+  "spawn_overrides": {},
+  "step": "surface_structures",
+  "terrain_adaptation": "none"
+}

@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "myriadbloom:block/candy_portal_ew"
+    },
+    "axis=z": {
+      "model": "myriadbloom:block/candy_portal_ns"
+    }
+  }
+}

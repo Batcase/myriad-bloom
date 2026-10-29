@@ -1,0 +1,21 @@
+{
+  "render_type": "minecraft:translucent",
+  "textures": {
+    "particle": "myriadbloom:block/frost_portal",
+    "portal": "myriadbloom:block/frost_portal"
+  },
+  "elements": [
+    {
+      "from": [0, 14, 0],
+      "to": [16, 16, 16],
+      "faces": {
+        "up": { "texture": "#portal" },
+        "down": { "texture": "#portal" },
+        "north": { "texture": "#portal" },
+        "south": { "texture": "#portal" },
+        "east": { "texture": "#portal" },
+        "west": { "texture": "#portal" }
+      }
+    }
+  ]
+}

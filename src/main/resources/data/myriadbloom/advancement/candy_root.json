@@ -1,0 +1,23 @@
+{
+  "display": {
+    "icon": {
+      "item": "myriadbloom:candy"
+    },
+    "title": {
+      "translate": "advancement.myriadbloom.candy_root"
+    },
+    "description": {
+      "translate": "advancement.myriadbloom.candy_root.desc"
+    },
+    "frame": "task",
+    "show_toast": false,
+    "announce_to_chat": true,
+    "hidden": false,
+    "background": "minecraft:textures/block/pink_terracotta.png"
+  },
+  "criteria": {
+    "entered": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

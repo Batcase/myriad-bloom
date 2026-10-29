@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "axis=y": {
+      "model": "myriadbloom:block/frost_portal_flat"
+    },
+    "axis=x": {
+      "model": "myriadbloom:block/frost_portal_ns"
+    },
+    "axis=z": {
+      "model": "myriadbloom:block/frost_portal_ew"
+    }
+  }
+}

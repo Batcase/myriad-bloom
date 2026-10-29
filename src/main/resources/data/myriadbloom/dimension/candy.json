@@ -1,0 +1,17 @@
+{
+  "type": "myriadbloom:candy",
+  "generator": {
+    "type": "minecraft:noise",
+    "biome_source": {
+      "type": "myriadbloom:candy_biome_source",
+      "delegate": {
+        "type": "minecraft:multi_noise",
+        "preset": "minecraft:overworld"
+      },
+      "biomes": [
+        "myriadbloom:candy_plains"
+      ]
+    },
+    "settings": "minecraft:overworld"
+  }
+}

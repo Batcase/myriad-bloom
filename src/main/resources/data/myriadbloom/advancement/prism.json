@@ -1,0 +1,23 @@
+{
+  "display": {
+    "icon": {
+      "item": "myriadbloom:time_sand"
+    },
+    "title": {
+      "translate": "advancement.myriadbloom.prism"
+    },
+    "description": {
+      "translate": "advancement.myriadbloom.prism.desc"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "done": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "parent": "myriadbloom:giant"
+}

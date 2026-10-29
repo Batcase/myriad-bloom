@@ -1,0 +1,39 @@
+{
+  "display": {
+    "icon": {
+      "item": "myriadbloom:frost_rock"
+    },
+    "title": {
+      "translate": "advancement.myriadbloom.root"
+    },
+    "description": {
+      "translate": "advancement.myriadbloom.root.desc"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false,
+    "background": "minecraft:textures/block/calcite.png"
+  },
+  "criteria": {
+    "entered": {
+      "trigger": "minecraft:impossible"
+    },
+    "rock": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "myriadbloom:frost_rock"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "entered",
+      "rock"
+    ]
+  ]
+}

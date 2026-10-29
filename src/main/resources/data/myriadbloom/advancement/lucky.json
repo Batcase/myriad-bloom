@@ -1,0 +1,30 @@
+{
+  "display": {
+    "icon": {
+      "item": "myriadbloom:wishing_pool"
+    },
+    "title": {
+      "translate": "advancement.myriadbloom.lucky"
+    },
+    "description": {
+      "translate": "advancement.myriadbloom.lucky.desc"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "got": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "myriadbloom:frost_pickaxe"
+          }
+        ]
+      }
+    }
+  },
+  "parent": "myriadbloom:frost_root"
+}

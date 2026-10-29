@@ -1,0 +1,42 @@
+{
+  "render_type": "minecraft:translucent",
+  "ambientocclusion": false,
+  "textures": {
+    "particle": "myriadbloom:block/candy_portal",
+    "portal": "myriadbloom:block/candy_portal"
+  },
+  "elements": [
+    {
+      "from": [
+        0,
+        0,
+        7.9
+      ],
+      "to": [
+        16,
+        16,
+        8.1
+      ],
+      "faces": {
+        "north": {
+          "texture": "#portal"
+        },
+        "south": {
+          "texture": "#portal"
+        },
+        "east": {
+          "texture": "#portal"
+        },
+        "west": {
+          "texture": "#portal"
+        },
+        "up": {
+          "texture": "#portal"
+        },
+        "down": {
+          "texture": "#portal"
+        }
+      }
+    }
+  ]
+}

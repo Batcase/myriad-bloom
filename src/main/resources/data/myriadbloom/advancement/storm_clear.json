@@ -1,0 +1,23 @@
+{
+  "display": {
+    "icon": {
+      "item": "myriadbloom:snowflake"
+    },
+    "title": {
+      "translate": "advancement.myriadbloom.storm_clear"
+    },
+    "description": {
+      "translate": "advancement.myriadbloom.storm_clear.desc"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "done": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "parent": "myriadbloom:timesong"
+}

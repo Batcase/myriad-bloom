@@ -1,0 +1,63 @@
+{
+  "carvers": {},
+  "creature_spawn_probability": 0.0,
+  "downfall": 0.0,
+  "effects": {
+    "fog_color": 6697034,
+    "mood_sound": {
+      "block_search_extent": 8,
+      "offset": 2.0,
+      "sound": "minecraft:ambient.cave",
+      "tick_delay": 6000
+    },
+    "sky_color": 6697034,
+    "water_color": 15902920,
+    "water_fog_color": 13074336
+  },
+  "features": [
+    [
+      "myriadbloom:candy_floor",
+      "myriadbloom:candy_terrain"
+    ],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [
+      "myriadbloom:lollipop"
+    ],
+    [
+      "myriadbloom:marshmallow_cloud"
+    ]
+  ],
+  "has_precipitation": false,
+  "spawn_costs": {},
+  "spawners": {
+    "ambient": [],
+    "axolotls": [],
+    "creature": [
+      {
+        "type": "myriadbloom:candy_cow",
+        "maxCount": 4,
+        "minCount": 2,
+        "weight": 8
+      },
+      {
+        "type": "myriadbloom:snow_beast",
+        "weight": 12,
+        "minCount": 2,
+        "maxCount": 4
+      }
+    ],
+    "misc": [],
+    "monster": [],
+    "underground_water_creature": [],
+    "water_ambient": [],
+    "water_creature": []
+  },
+  "temperature": 0.8
+}

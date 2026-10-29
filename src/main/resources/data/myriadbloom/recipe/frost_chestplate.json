@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    "X X",
+    "X#X",
+    "XXX"
+  ],
+  "key": {
+    "X": {
+      "item": "myriadbloom:frost_ingot"
+    },
+    "#": {
+      "item": "myriadbloom:ember_core"
+    }
+  },
+  "result": {
+    "id": "myriadbloom:frost_chestplate",
+    "count": 1
+  }
+}

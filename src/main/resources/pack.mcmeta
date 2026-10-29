@@ -1,0 +1,10 @@
+{
+  "pack": {
+    "description": "Frost Realm resources and datapack",
+    "pack_format": 34,
+    "supported_formats": {
+      "min_inclusive": 34,
+      "max_inclusive": 48
+    }
+  }
+}

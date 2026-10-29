@@ -1,0 +1,30 @@
+{
+  "display": {
+    "icon": {
+      "item": "myriadbloom:ember_crystal"
+    },
+    "title": {
+      "translate": "advancement.myriadbloom.ember"
+    },
+    "description": {
+      "translate": "advancement.myriadbloom.ember.desc"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "got": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "myriadbloom:ember_crystal"
+          }
+        ]
+      }
+    }
+  },
+  "parent": "myriadbloom:frost_root"
+}

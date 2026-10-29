@@ -1,0 +1,141 @@
+{
+  "elements": [
+    {
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "location": "minecraft:village/plains/town_centers/plains_fountain_01",
+        "processors": {
+          "processors": [
+            {
+              "processor_type": "myriadbloom:frosty_village",
+              "probability": 0.4,
+              "villager_removal_chance": 0.9
+            }
+          ]
+        },
+        "projection": "rigid"
+      },
+      "weight": 50
+    },
+    {
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "location": "minecraft:village/plains/town_centers/plains_meeting_point_1",
+        "processors": {
+          "processors": [
+            {
+              "processor_type": "myriadbloom:frosty_village",
+              "probability": 0.4,
+              "villager_removal_chance": 0.9
+            }
+          ]
+        },
+        "projection": "rigid"
+      },
+      "weight": 50
+    },
+    {
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "location": "minecraft:village/plains/town_centers/plains_meeting_point_2",
+        "processors": {
+          "processors": [
+            {
+              "processor_type": "myriadbloom:frosty_village",
+              "probability": 0.4,
+              "villager_removal_chance": 0.9
+            }
+          ]
+        },
+        "projection": "rigid"
+      },
+      "weight": 50
+    },
+    {
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "location": "minecraft:village/plains/town_centers/plains_meeting_point_3",
+        "processors": {
+          "processors": [
+            {
+              "processor_type": "myriadbloom:frosty_village",
+              "probability": 0.4,
+              "villager_removal_chance": 0.9
+            }
+          ]
+        },
+        "projection": "rigid"
+      },
+      "weight": 50
+    },
+    {
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "location": "minecraft:village/plains/zombie/town_centers/plains_fountain_01",
+        "processors": {
+          "processors": [
+            {
+              "processor_type": "myriadbloom:frosty_village",
+              "probability": 0.4,
+              "villager_removal_chance": 0.9
+            }
+          ]
+        },
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "location": "minecraft:village/plains/zombie/town_centers/plains_meeting_point_1",
+        "processors": {
+          "processors": [
+            {
+              "processor_type": "myriadbloom:frosty_village",
+              "probability": 0.4,
+              "villager_removal_chance": 0.9
+            }
+          ]
+        },
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "location": "minecraft:village/plains/zombie/town_centers/plains_meeting_point_2",
+        "processors": {
+          "processors": [
+            {
+              "processor_type": "myriadbloom:frosty_village",
+              "probability": 0.4,
+              "villager_removal_chance": 0.9
+            }
+          ]
+        },
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "location": "minecraft:village/plains/zombie/town_centers/plains_meeting_point_3",
+        "processors": {
+          "processors": [
+            {
+              "processor_type": "myriadbloom:frosty_village",
+              "probability": 0.4,
+              "villager_removal_chance": 0.9
+            }
+          ]
+        },
+        "projection": "rigid"
+      },
+      "weight": 1
+    }
+  ],
+  "fallback": "minecraft:empty"
+}

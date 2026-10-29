@@ -1,0 +1,22 @@
+{
+  "elements": [
+    {
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "location": "minecraft:village/desert/camel_spawn",
+        "processors": {
+          "processors": [
+            {
+              "processor_type": "myriadbloom:frosty_village",
+              "probability": 0.4,
+              "villager_removal_chance": 0.9
+            }
+          ]
+        },
+        "projection": "rigid"
+      },
+      "weight": 1
+    }
+  ],
+  "fallback": "minecraft:empty"
+}

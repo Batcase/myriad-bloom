@@ -1,0 +1,52 @@
+{
+  "variants": {
+    "color=white": {
+      "model": "myriadbloom:block/jelly_block_white"
+    },
+    "color=orange": {
+      "model": "myriadbloom:block/jelly_block_orange"
+    },
+    "color=magenta": {
+      "model": "myriadbloom:block/jelly_block_magenta"
+    },
+    "color=light_blue": {
+      "model": "myriadbloom:block/jelly_block_light_blue"
+    },
+    "color=yellow": {
+      "model": "myriadbloom:block/jelly_block_yellow"
+    },
+    "color=lime": {
+      "model": "myriadbloom:block/jelly_block_lime"
+    },
+    "color=pink": {
+      "model": "myriadbloom:block/jelly_block_pink"
+    },
+    "color=gray": {
+      "model": "myriadbloom:block/jelly_block_gray"
+    },
+    "color=light_gray": {
+      "model": "myriadbloom:block/jelly_block_light_gray"
+    },
+    "color=cyan": {
+      "model": "myriadbloom:block/jelly_block_cyan"
+    },
+    "color=purple": {
+      "model": "myriadbloom:block/jelly_block_purple"
+    },
+    "color=blue": {
+      "model": "myriadbloom:block/jelly_block_blue"
+    },
+    "color=brown": {
+      "model": "myriadbloom:block/jelly_block_brown"
+    },
+    "color=green": {
+      "model": "myriadbloom:block/jelly_block_green"
+    },
+    "color=red": {
+      "model": "myriadbloom:block/jelly_block_red"
+    },
+    "color=black": {
+      "model": "myriadbloom:block/jelly_block_black"
+    }
+  }
+}

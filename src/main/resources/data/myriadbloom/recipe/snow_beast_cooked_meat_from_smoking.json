@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:smoking",
+  "cookingtime": 100,
+  "experience": 0.35,
+  "category": "food",
+  "ingredient": {
+    "item": "myriadbloom:snow_beast_meat"
+  },
+  "result": {
+    "id": "myriadbloom:snow_beast_cooked_meat",
+    "count": 1
+  }
+}

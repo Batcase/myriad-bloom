@@ -1,0 +1,73 @@
+{
+  "elements": [
+    {
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "location": "minecraft:village/taiga/town_centers/taiga_meeting_point_1",
+        "processors": {
+          "processors": [
+            {
+              "processor_type": "myriadbloom:frosty_village",
+              "probability": 0.4,
+              "villager_removal_chance": 0.9
+            }
+          ]
+        },
+        "projection": "rigid"
+      },
+      "weight": 49
+    },
+    {
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "location": "minecraft:village/taiga/town_centers/taiga_meeting_point_2",
+        "processors": {
+          "processors": [
+            {
+              "processor_type": "myriadbloom:frosty_village",
+              "probability": 0.4,
+              "villager_removal_chance": 0.9
+            }
+          ]
+        },
+        "projection": "rigid"
+      },
+      "weight": 49
+    },
+    {
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "location": "minecraft:village/taiga/zombie/town_centers/taiga_meeting_point_1",
+        "processors": {
+          "processors": [
+            {
+              "processor_type": "myriadbloom:frosty_village",
+              "probability": 0.4,
+              "villager_removal_chance": 0.9
+            }
+          ]
+        },
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "location": "minecraft:village/taiga/zombie/town_centers/taiga_meeting_point_2",
+        "processors": {
+          "processors": [
+            {
+              "processor_type": "myriadbloom:frosty_village",
+              "probability": 0.4,
+              "villager_removal_chance": 0.9
+            }
+          ]
+        },
+        "projection": "rigid"
+      },
+      "weight": 1
+    }
+  ],
+  "fallback": "minecraft:empty"
+}

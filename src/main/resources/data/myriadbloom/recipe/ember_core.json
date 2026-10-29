@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "##",
+    "##"
+  ],
+  "key": {
+    "#": {
+      "item": "myriadbloom:ember_crystal"
+    }
+  },
+  "result": {
+    "id": "myriadbloom:ember_core",
+    "count": 1
+  }
+}

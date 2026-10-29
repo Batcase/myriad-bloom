@@ -1,0 +1,86 @@
+{
+  "elements": [
+    {
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "location": "minecraft:village/snowy/snowy_lamp_post_01",
+        "processors": {
+          "processors": [
+            {
+              "processor_type": "myriadbloom:frosty_village",
+              "probability": 0.4,
+              "villager_removal_chance": 0.9
+            }
+          ]
+        },
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "location": "minecraft:village/snowy/snowy_lamp_post_02",
+        "processors": {
+          "processors": [
+            {
+              "processor_type": "myriadbloom:frosty_village",
+              "probability": 0.4,
+              "villager_removal_chance": 0.9
+            }
+          ]
+        },
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "location": "minecraft:village/snowy/snowy_lamp_post_03",
+        "processors": {
+          "processors": [
+            {
+              "processor_type": "myriadbloom:frosty_village",
+              "probability": 0.4,
+              "villager_removal_chance": 0.9
+            }
+          ]
+        },
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:feature_pool_element",
+        "feature": "minecraft:spruce",
+        "projection": "rigid"
+      },
+      "weight": 4
+    },
+    {
+      "element": {
+        "element_type": "minecraft:feature_pool_element",
+        "feature": "minecraft:pile_snow",
+        "projection": "rigid"
+      },
+      "weight": 4
+    },
+    {
+      "element": {
+        "element_type": "minecraft:feature_pool_element",
+        "feature": "minecraft:pile_ice",
+        "projection": "rigid"
+      },
+      "weight": 4
+    },
+    {
+      "element": {
+        "element_type": "minecraft:empty_pool_element"
+      },
+      "weight": 7
+    }
+  ],
+  "fallback": "minecraft:empty"
+}

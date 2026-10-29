@@ -1,0 +1,33 @@
+# Gradle
+.gradle/
+build/
+!gradle/wrapper/gradle-wrapper.jar
+
+# IDE
+.idea/
+*.iml
+*.ipr
+*.iws
+.vscode/
+.settings/
+.classpath
+.project
+
+# ModDevGradle / NeoForge run directories (worlds, logs, crashes)
+run/
+run-*/
+runs/
+*.log
+*.err
+
+# internal development notes
+PROGRESS.md
+PROGRESS.html
+
+# only the 1080p cover is published, the 2x master is 1.7 MB
+cover@2x.png
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini

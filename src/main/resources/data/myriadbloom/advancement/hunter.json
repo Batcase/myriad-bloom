@@ -1,0 +1,28 @@
+{
+  "display": {
+    "icon": {
+      "item": "myriadbloom:boss_spawner"
+    },
+    "title": {
+      "translate": "advancement.myriadbloom.hunter"
+    },
+    "description": {
+      "translate": "advancement.myriadbloom.hunter.desc"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "kill": {
+      "trigger": "minecraft:player_killed_entity",
+      "conditions": {
+        "entity": {
+          "type": "myriadbloom:origin_ape"
+        }
+      }
+    }
+  },
+  "parent": "myriadbloom:frost_root"
+}

@@ -1,0 +1,31 @@
+{
+  "type": "myriadbloom:permafrost",
+  "generator": {
+    "type": "minecraft:noise",
+    "biome_source": {
+      "type": "myriadbloom:frost_biome_source",
+      "delegate": {
+        "type": "minecraft:multi_noise",
+        "preset": "minecraft:overworld"
+      },
+      "snowy_biomes": [
+        "myriadbloom:frost_snowy_plains",
+        "myriadbloom:frost_ice_spikes",
+        "myriadbloom:frost_frozen_river",
+        "myriadbloom:frost_frozen_ocean",
+        "myriadbloom:frost_grove",
+        "myriadbloom:frost_snowy_taiga",
+        "myriadbloom:frost_frozen_peaks",
+        "myriadbloom:frost_jagged_peaks",
+        "myriadbloom:frost_snowy_slopes",
+        "myriadbloom:frost_snowy_beach",
+        "myriadbloom:frost_lush_caves",
+        "myriadbloom:frosted_land",
+        "myriadbloom:frost_congealed",
+        "myriadbloom:frost_wishing_pool",
+        "myriadbloom:frost_ice_ocean"
+      ]
+    },
+    "settings": "minecraft:overworld"
+  }
+}

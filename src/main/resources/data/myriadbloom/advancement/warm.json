@@ -1,0 +1,23 @@
+{
+  "display": {
+    "icon": {
+      "item": "myriadbloom:frost_chestplate"
+    },
+    "title": {
+      "translate": "advancement.myriadbloom.warm"
+    },
+    "description": {
+      "translate": "advancement.myriadbloom.warm.desc"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "done": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "parent": "myriadbloom:ember"
+}
