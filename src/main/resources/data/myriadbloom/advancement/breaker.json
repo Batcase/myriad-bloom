@@ -1,7 +1,7 @@
 {
   "display": {
     "icon": {
-      "item": "myriadbloom:congealed_ice"
+      "id": "myriadbloom:congealed_ice"
     },
     "title": {
       "translate": "advancement.myriadbloom.breaker"

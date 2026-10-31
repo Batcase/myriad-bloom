@@ -22,6 +22,9 @@ public final class IceOceanArena {
     public static final int CELL = 9 * 16;
     /** Radius of the congealed ice platform. */
     public static final int PLATFORM_RADIUS = 26;
+    /** 碎冰的最小/最大半径（格）。 */
+    private static final int FLOW_ICE_MIN_RADIUS = 1;
+    private static final int FLOW_ICE_MAX_RADIUS = 4;
     /** Radius of the congealed ice floor locked while the boss lives. */
     public static final int SEAL_RADIUS = 40;
 
@@ -119,15 +122,30 @@ public final class IceOceanArena {
                 for (int y = surface - 3; y < surface; y++) {
                     level.setBlock(cursor.set(x, y, z), water, 2);
                 }
-                long floeHash = (long) x * 341873128712L + (long) z * 132897987541L;
-                // sparse floes: roughly 1 in 7 blocks near the platform, 1 in 13 further out
-                boolean floe = Math.floorMod(floeHash, distance < PLATFORM_RADIUS + 14 ? 7 : 13) == 0;
+                // 碎冰按 6x6 的"冰排"生成：每片有自己的大小、偏移和边缘缺口，
+                // 所以近处有大块、远处有碎渣，不会出现整齐的格点感
+                int cellX = Math.floorDiv(x, 6);
+                int cellZ = Math.floorDiv(z, 6);
+                long cellHash = (long) cellX * 341873128712L + (long) cellZ * 132897987541L;
+                int localX = Math.floorMod(x, 6);
+                int localZ = Math.floorMod(z, 6);
+                int offsetX = Math.floorMod((int) (cellHash >> 8), 6);
+                int offsetZ = Math.floorMod((int) (cellHash >> 16), 6);
+                int radius = FLOW_ICE_MIN_RADIUS
+                        + Math.floorMod((int) (cellHash >> 24), FLOW_ICE_MAX_RADIUS - FLOW_ICE_MIN_RADIUS + 1);
+                boolean hasFloe = Math.floorMod(cellHash, 100) < (distance < PLATFORM_RADIUS + 14 ? 62 : 34);
+                int dxLocal = Math.floorMod(localX - offsetX + 6, 6) - 2;
+                int dzLocal = Math.floorMod(localZ - offsetZ + 6, 6) - 2;
+                double floeDistance = Math.sqrt(dxLocal * dxLocal + dzLocal * dzLocal);
+                // 边缘啃缺：hash 决定的少数方块被切掉，让轮廓不规则
+                boolean bitten = Math.floorMod((int) (cellHash >> 32) + localX * 31 + localZ * 17, 11) == 0;
+                boolean floe = hasFloe && floeDistance <= radius && !bitten;
                 if (floe) {
-                    level.setBlock(cursor.set(x, surface, z), random.nextInt(4) == 0 ? ice : packedIce, 2);
+                    level.setBlock(cursor.set(x, surface, z), random.nextInt(5) == 0 ? ice : packedIce, 2);
                 } else {
                     level.setBlock(cursor.set(x, surface, z), water, 2);
-                    // rare raised ice, only outside the platform ring
-                    if (Math.floorMod(floeHash >> 8, 90) == 0) {
+                    // 少量拱起的冰块，位置和高度都随机
+                    if (Math.floorMod((int) (cellHash >> 40) + localX * 7 + localZ * 13, 97) == 0) {
                         for (int y = surface + 1; y <= surface + 2 + random.nextInt(2); y++) {
                             level.setBlock(cursor.set(x, y, z), packedIce, 2);
                         }

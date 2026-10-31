@@ -23,9 +23,10 @@
         "myriadbloom:frosted_land",
         "myriadbloom:frost_congealed",
         "myriadbloom:frost_wishing_pool",
-        "myriadbloom:frost_ice_ocean"
+        "myriadbloom:frost_ice_ocean",
+        "myriadbloom:frost_storm_woodland"
       ]
     },
-    "settings": "minecraft:overworld"
+    "settings": "myriadbloom:frost"
   }
 }

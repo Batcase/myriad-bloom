@@ -1,7 +1,7 @@
 {
   "display": {
     "icon": {
-      "item": "myriadbloom:candy_lollipop"
+      "id": "myriadbloom:candy_lollipop"
     },
     "title": {
       "translate": "advancement.myriadbloom.candy_food"

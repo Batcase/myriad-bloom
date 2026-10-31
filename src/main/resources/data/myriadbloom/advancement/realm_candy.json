@@ -1,7 +1,7 @@
 {
   "display": {
     "icon": {
-      "item": "myriadbloom:candy_portal"
+      "id": "myriadbloom:candy_portal"
     },
     "title": {
       "translate": "advancement.myriadbloom.realm_candy"

@@ -97,6 +97,8 @@ public final class MyriadBloom {
         FEATURES.register("marshmallow_cloud", () -> new com.myriadbloom.world.gen.MarshmallowCloudFeature());
         FEATURES.register("congealed_land", () -> new com.myriadbloom.world.gen.CongealedLandFeature());
         FEATURES.register("wishing_pool", () -> new com.myriadbloom.world.gen.WishingPoolFeature());
+        FEATURES.register("ancient_tree", () -> new com.myriadbloom.world.gen.AncientTreeFeature());
+        FEATURES.register("storm_entrance", () -> new com.myriadbloom.world.gen.StormEntranceFeature());
         // The snow fortress is a structure now (see FrostStructures), not a placed feature.
 
         // Force class initialisation so all holders above are populated before registration.
@@ -113,6 +115,7 @@ public final class MyriadBloom {
         MarshmallowContent.bootstrap();
         BossContent.bootstrap();
         SnowBeastContent.bootstrap();
+        StormWoodlandContent.bootstrap();
 
         modContainer.registerConfig(ModConfig.Type.COMMON, FrostConfig.SPEC);
 
@@ -134,6 +137,8 @@ public final class MyriadBloom {
         MyriadBloomApi.registerMechanic(new com.myriadbloom.world.IceOceanArenaMechanic());
         MyriadBloomApi.registerMechanic(new com.myriadbloom.world.event.RandomEventManager());
         MyriadBloomApi.registerMechanic(new com.myriadbloom.world.EntryAdvancementMechanic());
+        MyriadBloomApi.registerMechanic(new com.myriadbloom.world.StormWoodlandMechanic());
+        MyriadBloomApi.registerMechanic(new com.myriadbloom.world.StormMazeMechanic());
 
         LOGGER.info("Frost Realm initialised (dimension: {})", MyriadBloomApi.FROST_REALM.location());
     }

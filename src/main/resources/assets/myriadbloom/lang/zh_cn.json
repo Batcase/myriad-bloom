@@ -177,5 +177,21 @@
   "block.myriadbloom.boss_summoner.sealed": "封印尚未解除：先打倒极冰聚合物",
   "event.myriadbloom.blizzard.start": "暴风雪骤然降临！",
   "event.myriadbloom.time_stasis.start": "时间凝固了……",
-  "effect.myriadbloom.time_stasis": "时滞"
+  "effect.myriadbloom.time_stasis": "时滞",
+  "block.myriadbloom.ancient_wood": "古木",
+  "block.myriadbloom.ancient_leaves": "古树树叶",
+  "entity.myriadbloom.snow_rabbit": "雪兔",
+  "item.myriadbloom.snow_rabbit_spawn_egg": "雪兔刷怪蛋",
+  "block.myriadbloom.ancient_sapling": "古树树苗",
+  "block.myriadbloom.ice_step": "冰台阶",
+  "entity.myriadbloom.storm_prism": "风暴棱镜",
+  "block.myriadbloom.storm_prism_spawner": "风暴棱镜核心",
+  "effect.myriadbloom.storm_wind": "风暴",
+  "advancement.myriadbloom.storm_prism_slain": "风暴之眼",
+  "advancement.myriadbloom.storm_prism_slain.desc": "击败风暴棱镜",
+  "item.myriadbloom.ice_core": "冰原核心",
+  "item.myriadbloom.glacial_trophy": "极冰战利品",
+  "block.myriadbloom.giant_sapling": "巨木树苗",
+  "block.myriadbloom.giant_leaves": "巨木树叶",
+  "block.myriadbloom.trophy": "战利品摆件"
 }

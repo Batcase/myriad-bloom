@@ -34,7 +34,7 @@ public class GlacialConglomerationRenderer
     /** One model unit is 1/16 block, so an eightfold scale turns the cube into 8x8x8 blocks. */
     @Override
     protected void scale(GlacialConglomeration boss, PoseStack pose, float partialTick) {
-        pose.scale(8.0F, 8.0F, 8.0F);
+        pose.scale(4.0F, 4.0F, 4.0F);
     }
 
     @Override

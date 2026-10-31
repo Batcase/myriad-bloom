@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "stage=0": {
+      "model": "myriadbloom:block/giant_sapling"
+    },
+    "stage=1": {
+      "model": "myriadbloom:block/giant_sapling"
+    },
+    "stage=2": {
+      "model": "myriadbloom:block/giant_sapling"
+    }
+  }
+}

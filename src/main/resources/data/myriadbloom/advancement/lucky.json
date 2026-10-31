@@ -1,7 +1,7 @@
 {
   "display": {
     "icon": {
-      "item": "myriadbloom:wishing_pool"
+      "id": "myriadbloom:wishing_pool"
     },
     "title": {
       "translate": "advancement.myriadbloom.lucky"

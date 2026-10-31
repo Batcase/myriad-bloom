@@ -1,0 +1,23 @@
+{
+  "display": {
+    "icon": {
+      "id": "myriadbloom:storm_prism_spawner"
+    },
+    "title": {
+      "translate": "advancement.myriadbloom.storm_prism_slain"
+    },
+    "description": {
+      "translate": "advancement.myriadbloom.storm_prism_slain.desc"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "done": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "parent": "myriadbloom:giant"
+}

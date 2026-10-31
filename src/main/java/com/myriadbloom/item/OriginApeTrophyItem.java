@@ -32,6 +32,30 @@ public class OriginApeTrophyItem extends Item implements Equipable {
         return SoundEvents.ARMOR_EQUIP_TURTLE;
     }
 
+    /** 右键放在地上：变成一块战利品摆件。 */
+    @Override
+    public net.minecraft.world.InteractionResult useOn(
+            net.minecraft.world.item.context.UseOnContext context) {
+        var level = context.getLevel();
+        var pos = context.getClickedPos().relative(context.getClickedFace());
+        if (!level.getBlockState(pos).canBeReplaced()) {
+            return net.minecraft.world.InteractionResult.FAIL;
+        }
+        if (!level.isClientSide) {
+            // 交给方块自己决定落地还是贴墙
+            var placeContext = new net.minecraft.world.item.context.BlockPlaceContext(context);
+            var state = com.myriadbloom.BossContent.TROPHY.get().getStateForPlacement(placeContext);
+            if (state == null) {
+                state = com.myriadbloom.BossContent.TROPHY.get().defaultBlockState();
+            }
+            level.setBlock(pos, state, 3);
+            if (context.getPlayer() != null && !context.getPlayer().isCreative()) {
+                context.getItemInHand().shrink(1);
+            }
+        }
+        return net.minecraft.world.InteractionResult.sidedSuccess(level.isClientSide);
+    }
+
     @Override
     public Component getName(ItemStack stack) {
         return super.getName(stack).copy().withStyle(ChatFormatting.YELLOW);

@@ -37,6 +37,14 @@ public final class ModAttachments {
                     .sync(ByteBufCodecs.VAR_INT)
                     .build());
 
+    /** Ticks the snow rabbit still sits on the player's head; 0 means none. */
+    public static final Supplier<AttachmentType<Integer>> SNOW_RABBIT_CARRY = ATTACHMENT_TYPES.register(
+            "snow_rabbit_carry",
+            () -> AttachmentType.<Integer>builder(() -> 0)
+                    .serialize(Codec.INT)
+                    .sync(ByteBufCodecs.VAR_INT)
+                    .build());
+
     private ModAttachments() {
     }
 }

@@ -1,7 +1,7 @@
 {
   "display": {
     "icon": {
-      "item": "myriadbloom:snowflake"
+      "id": "myriadbloom:snowflake"
     },
     "title": {
       "translate": "advancement.myriadbloom.storm_clear"

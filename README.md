@@ -38,7 +38,7 @@
 .\gradlew build
 ```
 
-产物：`build\libs\frostrealm-1.0.0.jar`
+产物：`build\libs\myriadbloom-1.0.1beta.jar`
 
 开发期调试（会下载资源，第一次慢）：
 

@@ -60,11 +60,19 @@ public final class FrostBiomeSource extends BiomeSource {
     private final Holder<Biome> wishingPool;
     /** 冰洋 (ice ocean) holder, or {@code null} when it is not registered. */
     private final Holder<Biome> iceOcean;
+    /** 风暴林地 (storm woodland) holder, or {@code null} when it is not registered. */
+    private final Holder<Biome> stormWoodland;
     private final ConcurrentMap<ResourceKey<Biome>, Holder<Biome>> remapCache = new ConcurrentHashMap<>();
 
     /** {@code myriadbloom:frost_lush_caves}; one position in five falls back to plains. */
     private static final ResourceLocation LUSH_CAVES =
             ResourceLocation.fromNamespaceAndPath(MyriadBloom.MODID, "frost_lush_caves");
+    private static final ResourceLocation SNOWY_PLAINS =
+            ResourceLocation.fromNamespaceAndPath(com.myriadbloom.MyriadBloom.MODID, "frost_snowy_plains");
+    private static final ResourceLocation SNOWY_TAIGA =
+            ResourceLocation.fromNamespaceAndPath(com.myriadbloom.MyriadBloom.MODID, "frost_snowy_taiga");
+    private static final ResourceLocation SNOWY_GROVE =
+            ResourceLocation.fromNamespaceAndPath(com.myriadbloom.MyriadBloom.MODID, "frost_grove");
     private static final ResourceLocation PLAINS =
             ResourceLocation.fromNamespaceAndPath(MyriadBloom.MODID, "frost_snowy_plains");
     /** 凝结之地: one patch per 16x16 chunk region, never touching another patch. */
@@ -82,6 +90,10 @@ public final class FrostBiomeSource extends BiomeSource {
     private static final ResourceLocation ICE_OCEAN =
             ResourceLocation.fromNamespaceAndPath(MyriadBloom.MODID, "frost_ice_ocean");
 
+    /** 风暴林地 (storm woodland): a plus shaped forest ringing the congealed land. */
+    private static final ResourceLocation STORM_WOODLAND =
+            ResourceLocation.fromNamespaceAndPath(MyriadBloom.MODID, "frost_storm_woodland");
+
     public FrostBiomeSource(BiomeSource delegate, HolderSet<Biome> snowyBiomes) {
         this.delegate = delegate;
         this.snowyBiomes = snowyBiomes;
@@ -94,6 +106,7 @@ public final class FrostBiomeSource extends BiomeSource {
         this.congealedLand = this.find(CONGEALED_LAND).orElse(null);
         this.wishingPool = this.find(WISHING_POOL).orElse(null);
         this.iceOcean = this.find(ICE_OCEAN).orElse(null);
+        this.stormWoodland = this.find(STORM_WOODLAND).orElse(null);
     }
 
     public BiomeSource delegate() {
@@ -122,12 +135,10 @@ public final class FrostBiomeSource extends BiomeSource {
             // Should never happen for registry-backed biomes, but never crash worldgen over it.
             return this.fallback;
         }
-        if (this.wishingPool != null
-                && com.myriadbloom.world.gen.WishingPoolFeature.insidePatch(x * 4, z * 4)) {
-            return this.wishingPool;
-        }
-        if (this.congealedLand != null) {
+        Holder<Biome> mappedBiome = this.remapCache.computeIfAbsent(key.get(), this::snowyVersionOf);
+        if (this.congealedLand != null && !isWaterBiome(mappedBiome)) {
             if (insideCongealedPatch(x, z)) {
+                // 凝结之地只长在陆地上：海洋、河流、海滩上的区域不生成
                 return this.congealedLand;
             }
             // the climate noise must never produce the congealed land on its own: outside the single
@@ -136,10 +147,9 @@ public final class FrostBiomeSource extends BiomeSource {
                 return this.fallback;
             }
         }
-        if (insideCongealedBuffer(x, z)) {
-            // no other special biome may touch the congealed patch: a ring around it stays normal
-            Holder<Biome> mapped = this.remapCache.computeIfAbsent(key.get(), this::snowyVersionOf);
-            return mapped;
+        if (this.congealedLand != null && !isWaterBiome(mappedBiome) && insideCongealedBuffer(x, z)) {
+            // 凝结之地周围一圈缓冲区：不放别的特殊群系
+            return mappedBiome;
         }
         if (this.iceOcean != null) {
             // "frozen ocean" in the delegate sense: the remapped snowy biome is the frozen ocean
@@ -150,18 +160,50 @@ public final class FrostBiomeSource extends BiomeSource {
                 return this.iceOcean;
             }
         }
+        if (this.stormWoodland != null && !isWaterBiome(mappedBiome)
+                && com.myriadbloom.world.gen.StormCross.insideCross(x * 4, z * 4)) {
+            // the plus shaped storm woodland wraps the congealed land of its own region; oceans keep
+            // their water biome so the forest never turns a frozen sea into a taiga
+            return this.stormWoodland;
+        }
+        if (this.wishingPool != null && !isWaterBiome(mappedBiome)
+                && com.myriadbloom.world.gen.WishingPoolFeature.insidePatch(x * 4, z * 4)) {
+            return this.wishingPool;
+        }
         if (this.frostedLand != null && isFlatPlains(key.get())
-                && Math.floorMod(positionHash(x >> 11, 1, z >> 11), 3) == 0) {
-            // whole 128x128 chunk clusters (2048x2048 blocks) of plains become the flat frosted land,
-            // so the biome reads as a region instead of a handful of small patches
+                && com.myriadbloom.world.gen.FrostWarp.noise(x * 4 / 700.0D, z * 4 / 700.0D, 0x3F0D) > 0.15D) {
+            // 霜覆之地：用一大块噪声决定范围，边界是不规则的，不再是 128 格对齐的方块区
             return this.frostedLand;
         }
-        Holder<Biome> mapped = this.remapCache.computeIfAbsent(key.get(), this::snowyVersionOf);
+        // 海洋和河流太多了：七成的判定改写成雪原/雪林/雪棘，只留三成真正的水域
+        if (isWaterBiome(mappedBiome)) {
+            // 海洋改判成陆地时用平滑噪声画海岸线：边界是自然曲线，不再是 4x4 的方格锯齿
+            double coast = com.myriadbloom.world.gen.FrostWarp.noise(x * 4 / 260.0D, z * 4 / 260.0D, 0x7A11L);
+            if (coast > -0.02D) {
+                double pick = com.myriadbloom.world.gen.FrostWarp.noise(x * 4 / 900.0D, z * 4 / 900.0D, 0x1166L);
+                if (pick < -0.22D) {
+                    return this.find(SNOWY_TAIGA).orElse(this.plains);
+                }
+                if (pick > 0.24D) {
+                    return this.find(SNOWY_GROVE).orElse(this.plains);
+                }
+                return this.find(SNOWY_PLAINS).orElse(this.plains);
+            }
+        }
+        Holder<Biome> mapped = mappedBiome;
         if (isLushCaves(mapped) && Math.floorMod(positionHash(x, y, z), 5) == 0) {
             // shrink the lush cave region by one fifth
             return this.plains;
         }
         return mapped;
+    }
+
+    /** 海洋、河流、海滩这类以水为主的群系：特殊结构一律不生成在上面。 */
+    private static boolean isWaterBiome(Holder<Biome> biome) {
+        return biome.unwrapKey().map(key -> {
+            String path = key.location().getPath();
+            return path.contains("ocean") || path.contains("river") || path.contains("beach");
+        }).orElse(false);
     }
 
     /** True when the block position falls inside the single congealed patch of its region. */

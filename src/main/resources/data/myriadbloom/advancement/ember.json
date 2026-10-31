@@ -1,7 +1,7 @@
 {
   "display": {
     "icon": {
-      "item": "myriadbloom:ember_crystal"
+      "id": "myriadbloom:ember_crystal"
     },
     "title": {
       "translate": "advancement.myriadbloom.ember"

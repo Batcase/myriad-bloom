@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/inner_stairs",
+  "textures": {
+    "bottom": "myriadbloom:block/ice_step_top",
+    "top": "myriadbloom:block/ice_step_top",
+    "side": "myriadbloom:block/ice_step"
+  }
+}

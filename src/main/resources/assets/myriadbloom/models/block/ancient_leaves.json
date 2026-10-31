@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/leaves",
+  "textures": {
+    "all": "myriadbloom:block/ancient_leaves"
+  }
+}

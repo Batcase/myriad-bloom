@@ -1,7 +1,7 @@
 {
   "display": {
     "icon": {
-      "item": "myriadbloom:candy_cow_spawn_egg"
+      "id": "myriadbloom:candy_cow_spawn_egg"
     },
     "title": {
       "translate": "advancement.myriadbloom.candy_cow"

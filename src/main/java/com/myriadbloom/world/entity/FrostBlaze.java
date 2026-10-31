@@ -44,6 +44,15 @@ public class FrostBlaze extends Blaze {
         this.goalSelector.addGoal(4, new FrostAttackGoal(this));
     }
 
+    /**
+     * 冰做的烈焰神当然不怕水：覆盖掉原版烈焰神的"遇水受伤 + 头顶冒烟"，
+     * 否则它在水里会一边结冰一边冒烟，很出戏。
+     */
+    @Override
+    public boolean isSensitiveToWater() {
+        return false;
+    }
+
     @Override
     public void aiStep() {
         super.aiStep();

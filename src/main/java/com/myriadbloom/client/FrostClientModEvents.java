@@ -35,6 +35,9 @@ public final class FrostClientModEvents {
             ResourceLocation.fromNamespaceAndPath(MyriadBloom.MODID, "candy_cow_lollipops"), "main");
 
     /** Model layer of the ten block tall origin ape. */
+    public static final ModelLayerLocation SEALED_MAIDEN = new ModelLayerLocation(
+            ResourceLocation.fromNamespaceAndPath(MyriadBloom.MODID, "sealed_maiden"), "main");
+
     public static final ModelLayerLocation ORIGIN_APE = new ModelLayerLocation(
             ResourceLocation.fromNamespaceAndPath(MyriadBloom.MODID, "origin_ape"), "main");
 
@@ -42,6 +45,8 @@ public final class FrostClientModEvents {
     public static void registerLayerDefinitions(EntityRenderersEvent.RegisterLayerDefinitions event) {
         event.registerLayerDefinition(CANDY_COW_LOLLIPOPS, CandyCowLollipopLayer::createLayer);
         event.registerLayerDefinition(OriginApeTrophyLayer.LAYER, OriginApeTrophyLayer::createBodyLayer);
+        event.registerLayerDefinition(SEALED_MAIDEN, SealedMaidenModel::createBodyLayer);
+        event.registerLayerDefinition(GlacialTrophyLayer.LAYER, GlacialTrophyLayer::createBodyLayer);
         event.registerLayerDefinition(GLACIAL_CONGLOMERATION, GlacialConglomerationModel::createBodyLayer);
         event.registerLayerDefinition(ORIGIN_APE, OriginApeModel::createBodyLayer);
     }

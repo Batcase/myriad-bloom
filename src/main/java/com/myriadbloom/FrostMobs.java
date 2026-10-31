@@ -5,6 +5,9 @@ import com.myriadbloom.world.entity.FrostBlaze;
 import com.myriadbloom.world.entity.GlacialConglomeration;
 import com.myriadbloom.world.entity.OriginApe;
 import com.myriadbloom.world.entity.SnowBeast;
+import com.myriadbloom.world.entity.SnowRabbit;
+import com.myriadbloom.world.entity.StormIceShard;
+import com.myriadbloom.world.entity.StormPrism;
 import com.myriadbloom.world.entity.SnowSprite;
 import com.myriadbloom.world.entity.FrostBolt;
 import com.myriadbloom.world.entity.CarnivorousRabbit;
@@ -122,7 +125,7 @@ public final class FrostMobs {
         // animals that appear in the realm biome spawn lists still need an explicit placement rule,
         // otherwise NeoForge logs an error on every world start
         for (net.neoforged.neoforge.registries.DeferredHolder<EntityType<?>, ? extends EntityType<?>> animal
-                : java.util.List.of(SNOW_BEAST, CANDY_COW, CARNIVOROUS_RABBIT)) {
+                : java.util.List.of(SNOW_BEAST, CANDY_COW, CARNIVOROUS_RABBIT, SNOW_RABBIT)) {
             event.register((EntityType<?>) animal.get(),
                     net.minecraft.world.entity.SpawnPlacementTypes.NO_RESTRICTIONS,
                     net.minecraft.world.level.levelgen.Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
@@ -143,6 +146,18 @@ public final class FrostMobs {
             MyriadBloom.ITEMS.register("snow_beast_spawn_egg",
                     () -> new SpawnEggItem(SNOW_BEAST.get(), 0xF4F7FA, 0x8FD0F0, new Item.Properties()));
 
+    /** 雪兔: the round snow rabbit of the storm woodland. */
+    public static final DeferredHolder<EntityType<?>, EntityType<SnowRabbit>> SNOW_RABBIT =
+            MyriadBloom.ENTITY_TYPES.register("snow_rabbit",
+                    () -> EntityType.Builder.of(SnowRabbit::new, MobCategory.CREATURE)
+                            .sized(0.45F, 0.55F)
+                            .clientTrackingRange(8)
+                            .build("snow_rabbit"));
+
+    public static final DeferredItem<SpawnEggItem> SNOW_RABBIT_SPAWN_EGG =
+            MyriadBloom.ITEMS.register("snow_rabbit_spawn_egg",
+                    () -> new SpawnEggItem(SNOW_RABBIT.get(), 0xF7FAFF, 0xC0272E, new Item.Properties()));
+
     /** 极冰聚合物: boss of the frozen ocean arena. */
     public static final DeferredHolder<EntityType<?>, EntityType<GlacialConglomeration>> GLACIAL_CONGLOMERATION =
             MyriadBloom.ENTITY_TYPES.register("glacial_conglomeration",
@@ -152,6 +167,44 @@ public final class FrostMobs {
                             // the fog and the vignette while it is alive
                             .clientTrackingRange(16)
                             .build("glacial_conglomeration"));
+
+    /** 风暴棱镜: the third boss, six blocks wide and tall. */
+    public static final DeferredHolder<EntityType<?>, EntityType<StormPrism>> STORM_PRISM =
+            MyriadBloom.ENTITY_TYPES.register("storm_prism",
+                    () -> EntityType.Builder.of(StormPrism::new, MobCategory.MONSTER)
+                            .sized(6.0F, 6.0F)
+                            .clientTrackingRange(16)
+                            .fireImmune()
+                            .build("storm_prism"));
+
+    /** 冰棱: the falling ice of the prism's first skill. */
+    public static final DeferredHolder<EntityType<?>, EntityType<StormIceShard>> STORM_ICE_SHARD =
+            MyriadBloom.ENTITY_TYPES.register("storm_ice_shard",
+                    () -> EntityType.Builder.<StormIceShard>of(StormIceShard::new, MobCategory.MISC)
+                            .sized(1.5F, 1.5F)
+                            .clientTrackingRange(8)
+                            .updateInterval(2)
+                            .build("storm_ice_shard"));
+
+    /** 被封印的少女。 */
+    public static final DeferredHolder<EntityType<?>, EntityType<com.myriadbloom.world.entity.SealedMaiden>>
+            SEALED_MAIDEN = MyriadBloom.ENTITY_TYPES.register("sealed_maiden",
+                    () -> EntityType.Builder.of(com.myriadbloom.world.entity.SealedMaiden::new, MobCategory.MISC)
+                            .sized(0.9F, 1.9F)
+                            .clientTrackingRange(8)
+                            .fireImmune()
+                            .build("sealed_maiden"));
+
+    /** 时间魔法阵。 */
+    public static final DeferredHolder<EntityType<?>, EntityType<com.myriadbloom.world.entity.MagicCircle>>
+            MAGIC_CIRCLE = MyriadBloom.ENTITY_TYPES.register("magic_circle",
+                    () -> EntityType.Builder.<com.myriadbloom.world.entity.MagicCircle>of(
+                                    com.myriadbloom.world.entity.MagicCircle::new, MobCategory.MISC)
+                            .sized(1.0F, 0.2F)
+                            .clientTrackingRange(16)
+                            .updateInterval(20)
+                            .fireImmune()
+                            .build("magic_circle"));
 
     @SubscribeEvent
     public static void onAttributeCreation(EntityAttributeCreationEvent event) {
@@ -163,6 +216,9 @@ public final class FrostMobs {
         event.put(SNOW_SPRITE.get(), SnowSprite.spriteAttributes().build());
         event.put(SNOW_BEAST.get(), SnowBeast.beastAttributes().build());
         event.put(GLACIAL_CONGLOMERATION.get(), GlacialConglomeration.glacialAttributes().build());
+        event.put(SNOW_RABBIT.get(), SnowRabbit.snowRabbitAttributes().build());
+        event.put(STORM_PRISM.get(), StormPrism.prismAttributes().build());
+        event.put(SEALED_MAIDEN.get(), com.myriadbloom.world.entity.SealedMaiden.maidenAttributes().build());
     }
 
     public static void bootstrap() {
@@ -173,6 +229,7 @@ public final class FrostMobs {
         ModItems.CREATIVE_TAB_ITEMS.add(ORIGIN_APE_SPAWN_EGG);
         ModItems.CREATIVE_TAB_ITEMS.add(SNOW_SPRITE_SPAWN_EGG);
         ModItems.CREATIVE_TAB_ITEMS.add(SNOW_BEAST_SPAWN_EGG);
+        ModItems.CREATIVE_TAB_ITEMS.add(SNOW_RABBIT_SPAWN_EGG);
     }
 
     private FrostMobs() {

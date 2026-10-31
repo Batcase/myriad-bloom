@@ -124,6 +124,24 @@ public final class FrostEvents {
      * Per-player caches (warmth, thirst, portal charge) are keyed by UUID and live as long as the
      * server: without this they keep every player that ever logged in.
      */
+    /**
+     * Hands out the three page headers on login, wherever the player is.
+     *
+     * <p>Vanilla only sends advancements that are visible, and a root becomes visible once it is
+     * completed - without this the advancement screen would have no tab for the mod until something
+     * inside a realm was finished.</p>
+     */
+    @SubscribeEvent
+    public void onPlayerLoggedIn(net.neoforged.neoforge.event.entity.player.PlayerEvent.PlayerLoggedInEvent event) {
+        if (event.getEntity() instanceof net.minecraft.server.level.ServerPlayer player) {
+            com.myriadbloom.world.AdvancementAward.award(player, "root", "done");
+            com.myriadbloom.world.AdvancementAward.award(player, "frost_root", "done");
+            com.myriadbloom.world.AdvancementAward.award(player, "candy_root", "done");
+            MyriadBloom.LOGGER.info("Advancement page roots handed to {}",
+                    player.getGameProfile().getName());
+        }
+    }
+
     @SubscribeEvent
     public void onPlayerLoggedOut(net.neoforged.neoforge.event.entity.player.PlayerEvent.PlayerLoggedOutEvent event) {
         EnvironmentMechanic.Registry.playerLeft(event.getEntity().getUUID());

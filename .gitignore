@@ -31,3 +31,9 @@ cover@2x.png
 .DS_Store
 Thumbs.db
 desktop.ini
+
+# ╣Вйт╫е╠╬сК╫ьм╪
+*.py
+*.ps1
+/*.mcfunction
+/*.png

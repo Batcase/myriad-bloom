@@ -1,7 +1,7 @@
 {
   "display": {
     "icon": {
-      "item": "myriadbloom:candy"
+      "id": "myriadbloom:candy"
     },
     "title": {
       "translate": "advancement.myriadbloom.candy_root"
@@ -11,12 +11,12 @@
     },
     "frame": "task",
     "show_toast": false,
-    "announce_to_chat": true,
+    "announce_to_chat": false,
     "hidden": false,
     "background": "minecraft:textures/block/pink_terracotta.png"
   },
   "criteria": {
-    "entered": {
+    "done": {
       "trigger": "minecraft:impossible"
     }
   }

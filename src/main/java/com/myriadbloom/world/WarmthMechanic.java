@@ -172,6 +172,10 @@ public final class WarmthMechanic implements EnvironmentMechanic {
                 // full frost armour: warmth drains at half speed
                 interval *= 2;
             }
+            if (player.hasEffect(com.myriadbloom.ModMobEffects.STORM_WIND)) {
+                // 风暴棱镜的风暴：失温速度 +50%
+                interval = Math.max(1, (int) Math.round(interval / 1.5D));
+            }
             if (congealed) {
                 // the congealed land drains warmth twice as fast
                 interval = Math.max(1, interval / com.myriadbloom.FrostConfig.CONGEALED_DRAIN_MULTIPLIER.get());

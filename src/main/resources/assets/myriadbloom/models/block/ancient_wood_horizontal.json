@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column_horizontal",
+  "textures": {
+    "end": "myriadbloom:block/ancient_wood_top",
+    "side": "myriadbloom:block/ancient_wood"
+  }
+}

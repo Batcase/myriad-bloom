@@ -31,6 +31,41 @@ public final class FrostedLandContent {
                     .strength(2.0F)
                     .sound(SoundType.WOOD)));
 
+    /** 巨木树叶. */
+    public static final DeferredBlock<net.minecraft.world.level.block.LeavesBlock> GIANT_LEAVES =
+            MyriadBloom.BLOCKS.register("giant_leaves",
+                    () -> new net.minecraft.world.level.block.LeavesBlock(
+                            net.minecraft.world.level.block.state.BlockBehaviour.Properties.of()
+                                    .mapColor(net.minecraft.world.level.material.MapColor.PLANT)
+                                    .strength(0.2F)
+                                    .randomTicks()
+                                    .sound(net.minecraft.world.level.block.SoundType.GRASS)
+                                    .noOcclusion()
+                                    .isValidSpawn((state, level, pos, type) -> false)
+                                    .isSuffocating((state, level, pos) -> false)
+                                    .isViewBlocking((state, level, pos) -> false)
+                                    .ignitedByLava()
+                                    .pushReaction(net.minecraft.world.level.material.PushReaction.DESTROY)));
+
+    public static final DeferredItem<BlockItem> GIANT_LEAVES_ITEM =
+            MyriadBloom.ITEMS.registerSimpleBlockItem("giant_leaves", GIANT_LEAVES);
+
+    /** 巨木树苗. */
+    public static final DeferredBlock<com.myriadbloom.world.block.GiantSaplingBlock> GIANT_SAPLING =
+            MyriadBloom.BLOCKS.register("giant_sapling",
+                    () -> new com.myriadbloom.world.block.GiantSaplingBlock(
+                            net.minecraft.world.level.block.state.BlockBehaviour.Properties.of()
+                                    .mapColor(net.minecraft.world.level.material.MapColor.PLANT)
+                                    .strength(0.0F)
+                                    .randomTicks()
+                                    .sound(net.minecraft.world.level.block.SoundType.GRASS)
+                                    .noCollission()
+                                    .instabreak()
+                                    .pushReaction(net.minecraft.world.level.material.PushReaction.DESTROY)));
+
+    public static final DeferredItem<BlockItem> GIANT_SAPLING_ITEM =
+            MyriadBloom.ITEMS.registerSimpleBlockItem("giant_sapling", GIANT_SAPLING);
+
     public static final DeferredItem<BlockItem> GIANT_LOG_ITEM =
             MyriadBloom.ITEMS.registerSimpleBlockItem("giant_log", GIANT_LOG);
 
@@ -153,6 +188,8 @@ public final class FrostedLandContent {
 
     public static void bootstrap() {
         ModItems.CREATIVE_TAB_ITEMS.add(GIANT_LOG_ITEM);
+        ModItems.CREATIVE_TAB_ITEMS.add(GIANT_LEAVES_ITEM);
+        ModItems.CREATIVE_TAB_ITEMS.add(GIANT_SAPLING_ITEM);
         ModItems.CREATIVE_TAB_ITEMS.add(GIANT_PLANKS_ITEM);
         ModItems.CREATIVE_TAB_ITEMS.add(GIANT_WOODEN_SWORD);
         ModItems.CREATIVE_TAB_ITEMS.add(GIANT_WOODEN_PICKAXE);

@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "myriadbloom:block/giant_sapling"
+  }
+}

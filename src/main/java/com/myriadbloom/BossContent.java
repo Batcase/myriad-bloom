@@ -72,6 +72,39 @@ public final class BossContent {
                             .build(null));
 
     /** 时之沙: pale blue dust, no use yet, orange name. */
+    /** 冰原核心: the frozen core left by the glacial conglomeration. */
+    public static final DeferredItem<net.minecraft.world.item.Item> ICE_CORE = MyriadBloom.ITEMS.register(
+            "ice_core", () -> new net.minecraft.world.item.Item(new net.minecraft.world.item.Item.Properties()
+                    .rarity(net.minecraft.world.item.Rarity.UNCOMMON)));
+
+    /** 极冰战利品: the glacial head, wearable and placeable. */
+    public static final DeferredItem<com.myriadbloom.item.GlacialTrophyItem> GLACIAL_TROPHY =
+            MyriadBloom.ITEMS.register("glacial_trophy",
+                    () -> new com.myriadbloom.item.GlacialTrophyItem(
+                            new net.minecraft.world.item.Item.Properties()));
+
+    /** 战利品摆件: the placed head of either boss. */
+    public static final DeferredBlock<com.myriadbloom.world.block.TrophyBlock> TROPHY =
+            MyriadBloom.BLOCKS.register("trophy",
+                    () -> new com.myriadbloom.world.block.TrophyBlock(
+                            net.minecraft.world.level.block.state.BlockBehaviour.Properties.of()
+                                    .strength(0.4F)
+                                    .sound(net.minecraft.world.level.block.SoundType.GLASS)
+                                    .noOcclusion()));
+
+    public static final DeferredItem<BlockItem> TROPHY_ITEM =
+            MyriadBloom.ITEMS.registerSimpleBlockItem("trophy", TROPHY);
+
+    public static final net.neoforged.neoforge.registries.DeferredHolder<
+            net.minecraft.world.level.block.entity.BlockEntityType<?>,
+            net.minecraft.world.level.block.entity.BlockEntityType<
+                    com.myriadbloom.world.block.TrophyBlockEntity>> TROPHY_ENTITY =
+            BLOCK_ENTITIES.register("trophy",
+                    () -> net.minecraft.world.level.block.entity.BlockEntityType.Builder
+                            .of(com.myriadbloom.world.block.TrophyBlockEntity::new, TROPHY.get())
+                            .build(null));
+
+
     public static final DeferredItem<TimeSandItem> TIME_SAND = MyriadBloom.ITEMS.register(
             "time_sand", () -> new TimeSandItem(new Item.Properties().rarity(net.minecraft.world.item.Rarity.RARE)));
 
@@ -84,6 +117,9 @@ public final class BossContent {
         ModItems.CREATIVE_TAB_ITEMS.add(BOSS_SPAWNER_ITEM);
         ModItems.CREATIVE_TAB_ITEMS.add(GIANT_CHEST_ITEM);
         ModItems.CREATIVE_TAB_ITEMS.add(TIME_SAND);
+        ModItems.CREATIVE_TAB_ITEMS.add(ICE_CORE);
+        ModItems.CREATIVE_TAB_ITEMS.add(GLACIAL_TROPHY);
+        ModItems.CREATIVE_TAB_ITEMS.add(TROPHY_ITEM);
         ModItems.CREATIVE_TAB_ITEMS.add(ORIGIN_APE_TROPHY);
     }
 

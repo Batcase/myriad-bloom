@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=y": {
+      "model": "myriadbloom:block/ancient_wood"
+    },
+    "axis=z": {
+      "model": "myriadbloom:block/ancient_wood_horizontal",
+      "x": 90
+    },
+    "axis=x": {
+      "model": "myriadbloom:block/ancient_wood_horizontal",
+      "x": 90,
+      "y": 90
+    }
+  }
+}

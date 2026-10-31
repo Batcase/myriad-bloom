@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "armed=true": {
+      "model": "myriadbloom:block/storm_prism_spawner"
+    },
+    "armed=false": {
+      "model": "myriadbloom:block/storm_prism_spawner"
+    }
+  }
+}

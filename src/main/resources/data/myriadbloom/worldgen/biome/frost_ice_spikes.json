@@ -1,9 +1,7 @@
 {
   "carvers": {
     "air": [
-      "minecraft:cave",
-      "minecraft:cave_extra_underground",
-      "minecraft:canyon"
+      "minecraft:cave"
     ]
   },
   "creature_spawn_probability": 0.07,

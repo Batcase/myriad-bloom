@@ -1,7 +1,7 @@
 {
   "display": {
     "icon": {
-      "item": "myriadbloom:thin_ice"
+      "id": "myriadbloom:thin_ice"
     },
     "title": {
       "translate": "advancement.myriadbloom.chill"

@@ -49,9 +49,11 @@ public class WishingPoolFeature extends Feature<NoneFeatureConfiguration> {
     /** True inside the (round) wish patch of the region that owns this block. */
     public static boolean insidePatch(int blockX, int blockZ) {
         int[] centre = patchCentre(blockX >> 4, blockZ >> 4);
-        int dx = blockX - centre[0];
-        int dz = blockZ - centre[1];
-        return dx * dx + dz * dz <= PATCH_RADIUS * PATCH_RADIUS;
+        // 边界加噪声扰动，避免出现完美圆形
+        double wx = blockX + FrostWarp.offsetX(blockX, blockZ, 16.0D) - centre[0];
+        double wz = blockZ + FrostWarp.offsetZ(blockX, blockZ, 16.0D) - centre[1];
+        double radius = PATCH_RADIUS + 6.0D * FrostWarp.noise(blockX / 30.0D, blockZ / 30.0D, 0x51A7L);
+        return wx * wx + wz * wz <= radius * radius;
     }
 
     @Override

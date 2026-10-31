@@ -18,6 +18,7 @@ public final class FrostEntityRenderers {
             net.minecraft.client.renderer.entity.player.PlayerRenderer renderer = event.getSkin(skin);
             if (renderer != null) {
                 renderer.addLayer(new OriginApeTrophyLayer(renderer, event.getEntityModels()));
+                renderer.addLayer(new SnowRabbitCarryLayer(renderer, event.getEntityModels()));
             }
         }
     }
@@ -33,6 +34,12 @@ public final class FrostEntityRenderers {
         event.registerEntityRenderer(FrostMobs.SNOW_SPRITE.get(), SnowSpriteRenderer::new);
         event.registerEntityRenderer(FrostMobs.SNOW_BEAST.get(), SnowBeastRenderer::new);
         event.registerEntityRenderer(FrostMobs.GLACIAL_CONGLOMERATION.get(), GlacialConglomerationRenderer::new);
+        event.registerEntityRenderer(FrostMobs.SNOW_RABBIT.get(), SnowRabbitRenderer::new);
+        event.registerEntityRenderer(FrostMobs.STORM_PRISM.get(), StormPrismRenderer::new);
+        event.registerEntityRenderer(FrostMobs.SEALED_MAIDEN.get(), SealedMaidenRenderer::new);
+        event.registerEntityRenderer(FrostMobs.MAGIC_CIRCLE.get(), MagicCircleRenderer::new);
+        event.registerBlockEntityRenderer(com.myriadbloom.BossContent.TROPHY_ENTITY.get(),
+                TrophyRenderer::new);
     }
 
     private FrostEntityRenderers() {

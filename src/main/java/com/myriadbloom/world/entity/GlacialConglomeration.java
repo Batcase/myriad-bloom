@@ -40,8 +40,8 @@ import net.minecraft.world.phys.Vec3;
  * <p>Its hide soaks 40% of every hit, except from pickaxes - and a 覆雪之镐 deals 50% extra on top.</p>
  */
 public class GlacialConglomeration extends Monster {
-    public static final float WIDTH = 8.0F;
-    public static final float HEIGHT = 8.0F;
+    public static final float WIDTH = 4.0F;
+    public static final float HEIGHT = 4.0F;
     private static final float MELEE_DAMAGE = 8.0F;
     private static final int ATTACK_COOLDOWN = 40;      // 2 seconds
     private static final float SLAM_DAMAGE = 20.0F;
@@ -52,6 +52,11 @@ public class GlacialConglomeration extends Monster {
     private final ServerBossEvent bossEvent = (ServerBossEvent) new ServerBossEvent(
             this.getDisplayName(), BossEvent.BossBarColor.BLUE, BossEvent.BossBarOverlay.PROGRESS)
             .setPlayBossMusic(false);
+
+    /** 死亡动画：0 = 活着，之后依次缩小、膨胀、炸开。 */
+    private boolean dying;
+    private int deathAnim;
+    private net.minecraft.world.damagesource.DamageSource lastHit;
 
     private int attackCooldown;
     private int skillCooldown = SKILL_COOLDOWN;
@@ -119,6 +124,10 @@ public class GlacialConglomeration extends Monster {
     // ------------------------------------------------------------- tick logic ------------
     @Override
     public void aiStep() {
+        if (this.dying) {
+            tickDeathAnimation();
+            return;
+        }
         super.aiStep();
         if (this.attackCooldown > 0) {
             this.attackCooldown--;
@@ -206,6 +215,22 @@ public class GlacialConglomeration extends Monster {
     // ------------------------------------------------------------- damage trait ----------
     @Override
     public boolean hurt(DamageSource source, float amount) {
+        if (this.dying) {
+            return false;
+        }
+        if (this.level() instanceof ServerLevel && this.getHealth() - amount <= 0.0F) {
+            // 致命一击不直接死：先演完缩小 → 膨胀 → 炸开
+            this.lastHit = source;
+            this.dying = true;
+            this.deathAnim = 0;
+            this.setHealth(1.0F);
+            this.setInvulnerable(true);
+            this.getNavigation().stop();
+            this.setDeltaMovement(0.0D, 0.0D, 0.0D);
+            this.level().playSound(null, this.getX(), this.getY(), this.getZ(),
+                    SoundEvents.GLASS_HIT, SoundSource.HOSTILE, 2.0F, 0.6F);
+            return true;
+        }
         float scaled;
         if (source.getEntity() instanceof Player player) {
             ItemStack weapon = player.getMainHandItem();
@@ -252,6 +277,65 @@ public class GlacialConglomeration extends Monster {
         }
     }
 
+    /** 缩小 20 tick → 膨胀 20 tick → 炸开，原地留下巨木箱子。 */
+    private void tickDeathAnimation() {
+        if (!(this.level() instanceof ServerLevel server)) {
+            return;
+        }
+        this.deathAnim++;
+        float scale;
+        if (this.deathAnim <= 20) {
+            scale = 1.0F - 0.65F * (this.deathAnim / 20.0F);
+        } else if (this.deathAnim <= 40) {
+            scale = 0.35F + 1.45F * ((this.deathAnim - 20) / 20.0F);
+        } else {
+            explodeAndDrop(server);
+            return;
+        }
+        this.getAttribute(net.minecraft.world.entity.ai.attributes.Attributes.SCALE)
+                .setBaseValue(Math.max(0.05F, scale));
+        if (this.deathAnim % 4 == 0) {
+            server.sendParticles(ParticleTypes.SNOWFLAKE, this.getX(), this.getY() + this.getBbHeight() * 0.5D,
+                    this.getZ(), 8, 1.0D, 1.0D, 1.0D, 0.05D);
+        }
+    }
+
+    /** 炸开：粒子 + 音效 + 巨木箱子。 */
+    private void explodeAndDrop(ServerLevel server) {
+        server.sendParticles(ParticleTypes.EXPLOSION_EMITTER, this.getX(), this.getY() + 1.0D, this.getZ(),
+                1, 0.0D, 0.0D, 0.0D, 0.0D);
+        server.sendParticles(ParticleTypes.ITEM_SNOWBALL, this.getX(), this.getY() + 1.0D, this.getZ(),
+                120, 2.0D, 2.0D, 2.0D, 0.15D);
+        server.playSound(null, this.getX(), this.getY(), this.getZ(),
+                SoundEvents.GLASS_BREAK, SoundSource.HOSTILE, 3.0F, 0.4F);
+        placeLootChest(server);
+        ArenaGuard.of(server).release(this.blockPosition());
+        if (this.lastHit != null && this.lastHit.getEntity() instanceof ServerPlayer killer) {
+            com.myriadbloom.world.AdvancementAward.award(killer, "giant");
+        }
+        this.bossEvent.removeAllPlayers();
+        this.discard();
+    }
+
+    /** 在死亡位置放一个巨木箱子，战利品表由第一次打开时滚动。 */
+    private void placeLootChest(ServerLevel server) {
+        net.minecraft.core.BlockPos base = this.blockPosition();
+        net.minecraft.core.BlockPos pos = base;
+        for (int attempt = 0; attempt < 6; attempt++) {
+            if (server.getBlockState(pos).canBeReplaced()) {
+                break;
+            }
+            pos = pos.above();
+        }
+        server.setBlock(pos, com.myriadbloom.BossContent.GIANT_CHEST.get().defaultBlockState(), 3);
+        if (server.getBlockEntity(pos) instanceof com.myriadbloom.world.block.GiantChestBlockEntity chest) {
+            chest.setLootTable(net.minecraft.resources.ResourceKey.create(
+                    net.minecraft.core.registries.Registries.LOOT_TABLE,
+                    com.myriadbloom.api.MyriadBloomApi.id("chests/glacial_conglomeration")),
+                    server.getRandom().nextLong());
+        }
+    }
+
     @Override
     public void die(DamageSource source) {
         if (this.level() instanceof ServerLevel server) {
@@ -260,6 +344,9 @@ public class GlacialConglomeration extends Monster {
                     SoundEvents.GLASS_BREAK, SoundSource.HOSTILE, 1.6F, 0.5F);
         }
         this.bossEvent.removeAllPlayers();
+        if (source.getEntity() instanceof ServerPlayer killer) {
+            com.myriadbloom.world.AdvancementAward.award(killer, "giant");
+        }
         super.die(source);
     }
 
