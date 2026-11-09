@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "myriadbloom:block/burnwood_log_top",
+    "side": "myriadbloom:block/burnwood_log"
+  }
+}

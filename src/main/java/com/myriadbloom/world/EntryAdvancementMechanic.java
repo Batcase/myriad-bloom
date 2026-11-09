@@ -49,6 +49,12 @@ public final class EntryAdvancementMechanic implements EnvironmentMechanic {
         ServerLevel level = player.serverLevel();
         if (MyriadBloomApi.isMyriadBloom(level)) {
             grant(player, "realm_frost", "entered");
+            // 用玩家持久数据记录，保证日记只发一次（与成就状态解耦）
+            var data = player.getPersistentData();
+            if (!data.getBoolean("myriadbloom_worn_diary")) {
+                data.putBoolean("myriadbloom_worn_diary", true);
+                giveDiary(player);
+            }
         } else if (MyriadBloomApi.isCandy(level)) {
             grant(player, "realm_candy", "entered");
         }
@@ -69,5 +75,15 @@ public final class EntryAdvancementMechanic implements EnvironmentMechanic {
     @Override
     public String debugState() {
         return "entry_advancements.bootstrapped=" + BOOTSTRAPPED.size();
+    }
+
+    /** 第一次进入霜境，把破旧不堪的日记塞进玩家背包。 */
+    private static void giveDiary(ServerPlayer player) {
+        var stack = com.myriadbloom.item.DiaryBook.create("破旧不堪的日记 / Worn-out Diary");
+        if (!player.getInventory().add(stack)) {
+            player.drop(stack, false);
+        }
+        player.displayClientMessage(
+                net.minecraft.network.chat.Component.translatable("item.myriadbloom.worn_diary.hint"), true);
     }
 }

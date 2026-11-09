@@ -10,34 +10,35 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 
 /**
- * 封印之山 (sealed mountain): a cone of eternal ice at the centre of the congealed land.
+ * 封印之地 (sealed site): a noisy cluster of eternal ice spikes at the centre of the congealed land.
  *
- * <p>建造是渐进式的：每次 tick 只处理少量柱子，避免一次性写入十万格方块卡住服务器。建完之后
- * 才放下浮空的少女和山顶的魔法阵。</p>
+ * <p>中央一根明显更粗更高的冰刺，里面是空腔，少女浮在其中；四周是角度、距离、粗细、高度都被噪声打散的
+ * 细冰刺，以及几根矮冰桩。每根刺都从自己脚下的地面长起，魔法阵悬在中央刺上方。</p>
  */
 public final class SealedMountain {
-    /** 底面半径。 */
-    public static final int RADIUS = 26;
-    /** 高度。 */
-    public static final int HEIGHT = 30;
-    /** 中央空腔半径。 */
-    public static final int CHAMBER = 5;
-    /** 每 tick 处理的柱子数。 */
-    private static final int COLUMNS_PER_TICK = 320;
+    private static final int CORE_RADIUS = 5;
+    private static final int CORE_HEIGHT = 30;
+    private static final int CHAMBER_RADIUS = 3;
+    private static final int CHAMBER_HEIGHT = 20;
+    /** 外围冰刺数量。 */
+    private static final int SATELLITES = 12;
+    /** 每 tick 放置的列数。 */
+    private static final int COLUMNS_PER_TICK = 260;
 
-    /** 正在建造的山：区域键 -> 任务。 */
     private static final Map<Long, Job> JOBS = new ConcurrentHashMap<>();
 
     private SealedMountain() {
     }
 
-    /** 一次成型的任务：记录进度。 */
+    private record Column(int x, int z, int bottom, int top, int hollowTop) {
+    }
+
     private static final class Job {
         final int centreX;
         final int centreZ;
         int ground = Integer.MIN_VALUE;
+        List<Column> columns;
         int index;
-        int summit = Integer.MIN_VALUE;
 
         Job(int centreX, int centreZ) {
             this.centreX = centreX;
@@ -45,20 +46,14 @@ public final class SealedMountain {
         }
     }
 
-    /** 排队建山；同一区域只会有一个任务。 */
     public static void start(ServerLevel level, int x, int z) {
-        long key = ((long) x << 32) | (z & 0xFFFFFFFFL);
-        if (JOBS.containsKey(key)) {
-            return;
-        }
-        JOBS.put(key, new Job(x, z));
+        JOBS.putIfAbsent(((long) x << 32) | (z & 0xFFFFFFFFL), new Job(x, z));
     }
 
     public static boolean isBuilding(int x, int z) {
         return JOBS.containsKey(((long) x << 32) | (z & 0xFFFFFFFFL));
     }
 
-    /** 每个 tick 推进所有在建的山。 */
     public static void tick(ServerLevel level) {
         if (JOBS.isEmpty()) {
             return;
@@ -70,78 +65,101 @@ public final class SealedMountain {
         for (Map.Entry<Long, Job> entry : JOBS.entrySet()) {
             Job job = entry.getValue();
             if (job.ground == Integer.MIN_VALUE) {
-                // 区块没加载就读高度会得到 -64，所以等加载后再取
                 if (!level.hasChunk(job.centreX >> 4, job.centreZ >> 4)) {
                     continue;
                 }
                 job.ground = Math.max(63, level.getHeight(
                         net.minecraft.world.level.levelgen.Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                         job.centreX, job.centreZ));
-                job.summit = job.ground + HEIGHT + 4;
+                job.columns = plan(level, job.centreX, job.centreZ, job.ground);
+            }
+            if (job.columns == null) {
+                continue;
             }
             int processed = 0;
-            int span = RADIUS * 2 + 1;
-            while (processed < COLUMNS_PER_TICK) {
-                int total = span * span;
-                if (job.index >= total) {
-                    finished.add(entry.getKey());
-                    break;
-                }
-                int dx = job.index % span - RADIUS;
-                int dz = job.index / span - RADIUS;
-                job.index++;
+            while (job.index < job.columns.size() && processed < COLUMNS_PER_TICK) {
+                Column column = job.columns.get(job.index++);
                 processed++;
-                double distance = Math.sqrt(dx * dx + dz * dz);
-                if (distance > RADIUS) {
-                    continue;
+                for (int y = column.bottom(); y <= column.top(); y++) {
+                    level.setBlock(cursor.set(column.x(), y, column.z()), ice, 3);
                 }
-                int columnX = job.centreX + dx;
-                int columnZ = job.centreZ + dz;
-                int groundHere = level.getHeight(
-                        net.minecraft.world.level.levelgen.Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-                        columnX, columnZ) - 1;
-                // 每列给一点哈希噪声，让锥面起伏、不完美对称
-                int hash = (columnX * 374761393 + columnZ * 668265263) ^ (job.centreX * 31 + job.centreZ);
-                hash = (hash ^ (hash >>> 13)) * 1274126177;
-                double wobble = ((hash >>> 8) & 0xFF) / 255.0D - 0.5D;
-                double ratio = Math.min(1.0D, distance / RADIUS);
-                int topOffset = (int) Math.round(HEIGHT * (1.0D - Math.pow(ratio, 1.15D))
-                        + wobble * 3.0D * (1.0D - ratio));
-                int topY = job.ground + topOffset;
-                for (int y = groundHere; y <= topY; y++) {
-                    level.setBlock(cursor.set(columnX, y, columnZ), ice, 3);
-                }
-                if (distance <= CHAMBER) {
-                    for (int y = groundHere + 1; y <= job.ground + 22; y++) {
-                        level.setBlock(cursor.set(columnX, y, columnZ), air, 3);
+                if (column.hollowTop() > column.bottom()) {
+                    for (int y = column.bottom() + 1; y <= column.hollowTop(); y++) {
+                        level.setBlock(cursor.set(column.x(), y, column.z()), air, 3);
                     }
                 }
             }
-            // 建完后放少女与魔法阵
-            boolean done = job.index >= (RADIUS * 2 + 1) * (RADIUS * 2 + 1);
-            if (done && !finished.contains(entry.getKey())) {
+            if (job.index >= job.columns.size()) {
                 finished.add(entry.getKey());
             }
         }
         for (Long key : finished) {
             Job job = JOBS.remove(key);
-            if (job == null) {
-                continue;
+            if (job != null) {
+                spawnContents(level, job);
             }
-            spawnContents(level, job);
         }
     }
 
-    /** 少女浮在空腔中央，魔法阵悬在锥顶。 */
+    /** 只造一根冰刺：比原版冰刺稍粗稍高，内部留空腔放少女。 */
+    private static List<Column> plan(ServerLevel level, int centreX, int centreZ, int ground) {
+        List<Column> columns = new ArrayList<>();
+        addPillar(level, columns, centreX, centreZ, CORE_RADIUS, CORE_HEIGHT, ground,
+                CHAMBER_RADIUS, ground + CHAMBER_HEIGHT);
+        return columns;
+    }
+
+    /**
+     * 一根冰刺：每列从自己脚下的地面长起；横截面用噪声扰动；顶端有轻微抖动。
+     */
+    private static void addPillar(ServerLevel level, List<Column> columns, int centreX, int centreZ,
+                                  int radius, int height, int baseGround, int hollowRadius, int hollowTop) {
+        int bound = radius + 1;
+        for (int dx = -bound; dx <= bound; dx++) {
+            for (int dz = -bound; dz <= bound; dz++) {
+                int x = centreX + dx;
+                int z = centreZ + dz;
+                double distance = Math.sqrt(dx * dx + dz * dz);
+                // 沿圆周采样噪声：同一方向上半径恒定，柱子内部不会漏洞
+                double dirX = distance > 1.0E-4D ? dx / distance : 1.0D;
+                double dirZ = distance > 1.0E-4D ? dz / distance : 0.0D;
+                double edge = radius * (1.0D + 0.28D * FrostWarp.noise(
+                        dirX * 1.7D + centreX * 0.05D, dirZ * 1.7D + centreZ * 0.05D, 0xA53CL));
+                if (distance > edge) {
+                    continue;
+                }
+                int columnGround = level.getHeight(
+                        net.minecraft.world.level.levelgen.Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                        x, z) - 1;
+                int jitter = Math.floorMod(x * 31 + z * 17, 3) - 1;
+                double ratio = Math.min(1.0D, distance / Math.max(1.0D, edge));
+                int taper = (int) Math.round(Math.max(0.0D, ratio - 0.65D) / 0.35D * height * 0.5D);
+                int top = columnGround + height - taper + jitter;
+                boolean hollow = hollowRadius > 0 && distance <= hollowRadius;
+                columns.add(new Column(x, z, columnGround, top, hollow ? hollowTop : 0));
+            }
+        }
+    }
+
     private static void spawnContents(ServerLevel level, Job job) {
+        if (job.ground == Integer.MIN_VALUE) {
+            return;
+        }
         SealedMaiden maiden = com.myriadbloom.FrostMobs.SEALED_MAIDEN.get().create(level);
         if (maiden != null) {
-            maiden.moveTo(job.centreX + 0.5D, job.ground + 12.0D, job.centreZ + 0.5D, 0.0F, 0.0F);
+            maiden.moveTo(job.centreX + 0.5D, job.ground + 11.0D, job.centreZ + 0.5D, 0.0F, 0.0F);
             level.addFreshEntity(maiden);
+        }
+        // 兜底：附近已经有魔法阵就不再生成
+        var existing = level.getEntitiesOfClass(MagicCircle.class,
+                new net.minecraft.world.phys.AABB(job.centreX - 48, job.ground - 32, job.centreZ - 48,
+                        job.centreX + 48, job.ground + 128, job.centreZ + 48));
+        if (!existing.isEmpty()) {
+            return;
         }
         MagicCircle circle = com.myriadbloom.FrostMobs.MAGIC_CIRCLE.get().create(level);
         if (circle != null) {
-            circle.moveTo(job.centreX + 0.5D, job.summit, job.centreZ + 0.5D, 0.0F, 0.0F);
+            circle.moveTo(job.centreX + 0.5D, job.ground + CORE_HEIGHT + 12.0D, job.centreZ + 0.5D, 0.0F, 0.0F);
             circle.setRadius(CongealedLandFeature.PATCH_RADIUS + CongealedLandFeature.MAX_WOBBLE);
             level.addFreshEntity(circle);
         }

@@ -36,8 +36,12 @@ public final class FrostEntityRenderers {
         event.registerEntityRenderer(FrostMobs.GLACIAL_CONGLOMERATION.get(), GlacialConglomerationRenderer::new);
         event.registerEntityRenderer(FrostMobs.SNOW_RABBIT.get(), SnowRabbitRenderer::new);
         event.registerEntityRenderer(FrostMobs.STORM_PRISM.get(), StormPrismRenderer::new);
+        // 风暴棱镜的冰锥：原来没有注册渲染器，生成时会因 EntityRenderer 为 null 而崩溃
+        event.registerEntityRenderer(FrostMobs.STORM_ICE_SHARD.get(),
+                net.minecraft.client.renderer.entity.ThrownItemRenderer::new);
         event.registerEntityRenderer(FrostMobs.SEALED_MAIDEN.get(), SealedMaidenRenderer::new);
         event.registerEntityRenderer(FrostMobs.MAGIC_CIRCLE.get(), MagicCircleRenderer::new);
+        event.registerEntityRenderer(FrostMobs.TIME_KEEPER.get(), TimeKeeperRenderer::new);
         event.registerBlockEntityRenderer(com.myriadbloom.BossContent.TROPHY_ENTITY.get(),
                 TrophyRenderer::new);
     }

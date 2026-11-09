@@ -76,6 +76,15 @@ public class FrostyVillageProcessor extends StructureProcessor {
         if (state.isAir() || state.is(Blocks.STRUCTURE_VOID) || state.is(Blocks.JIGSAW)) {
             return current;
         }
+        // 村庄的火把/灯笼亮度太高（14/15），会把附近被冻结的方块烤化：
+        // 统一换成亮度 11 的霜灯，冰就不会融化
+        if (state.is(Blocks.LANTERN) || state.is(Blocks.SOUL_LANTERN)
+                || state.is(Blocks.TORCH) || state.is(Blocks.WALL_TORCH)
+                || state.is(Blocks.SOUL_TORCH) || state.is(Blocks.SOUL_WALL_TORCH)
+                || state.is(Blocks.CAMPFIRE) || state.is(Blocks.SOUL_CAMPFIRE)) {
+            return new StructureTemplate.StructureBlockInfo(current.pos(),
+                    com.myriadbloom.FrostedLandContent.FROST_LAMP.get().defaultBlockState(), null);
+        }
         if (randomAt(current.pos()).nextFloat() < this.probability) {
             return new StructureTemplate.StructureBlockInfo(current.pos(), Blocks.ICE.defaultBlockState(), null);
         }

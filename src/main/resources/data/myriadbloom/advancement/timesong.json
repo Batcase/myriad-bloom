@@ -19,5 +19,5 @@
       "trigger": "minecraft:impossible"
     }
   },
-  "parent": "myriadbloom:prism"
+  "parent": "myriadbloom:storm_prism_slain"
 }

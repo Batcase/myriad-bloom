@@ -86,6 +86,7 @@ public final class MyriadBloom {
 
         BIOME_SOURCES.register(FROST_BIOME_SOURCE_ID, () -> FrostBiomeSource.CODEC);
         BIOME_SOURCES.register("candy_biome_source", () -> CandyBiomeSource.CODEC);
+        BIOME_SOURCES.register("burned_biome_source", () -> com.myriadbloom.world.BurnedBiomeSource.CODEC);
         STRUCTURE_PROCESSORS.register("frosty_village", () -> FrostyVillageProcessor.TYPE);
         FEATURES.register("frost_floor", () -> new FrostFloorFeature());
         FEATURES.register("lollipop", () -> new LollipopFeature());
@@ -99,6 +100,8 @@ public final class MyriadBloom {
         FEATURES.register("wishing_pool", () -> new com.myriadbloom.world.gen.WishingPoolFeature());
         FEATURES.register("ancient_tree", () -> new com.myriadbloom.world.gen.AncientTreeFeature());
         FEATURES.register("storm_entrance", () -> new com.myriadbloom.world.gen.StormEntranceFeature());
+        FEATURES.register("burn_tree", () -> new com.myriadbloom.world.gen.BurnTreeFeature());
+        FEATURES.register("burnt_ruins", () -> new com.myriadbloom.world.gen.BurntRuinsFeature());
         // The snow fortress is a structure now (see FrostStructures), not a placed feature.
 
         // Force class initialisation so all holders above are populated before registration.
@@ -116,6 +119,11 @@ public final class MyriadBloom {
         BossContent.bootstrap();
         SnowBeastContent.bootstrap();
         StormWoodlandContent.bootstrap();
+        BurnedLandContent.bootstrap();
+        MyriadBloomApi.registerMechanic(new com.myriadbloom.world.TimeVoidArenaMechanic());
+        MyriadBloomApi.registerMechanic(new com.myriadbloom.world.AltarSiteMechanic());
+        MyriadBloomApi.registerMechanic(new com.myriadbloom.world.TimeStopMechanic());
+        TimeVoidContent.bootstrap();
 
         modContainer.registerConfig(ModConfig.Type.COMMON, FrostConfig.SPEC);
 

@@ -1,0 +1,78 @@
+{
+  "carvers": {},
+  "creature_spawn_probability": 0.07,
+  "downfall": 0.0,
+  "effects": {
+    "fog_color": 7023130,
+    "sky_color": 3804680,
+    "water_color": 9054736,
+    "water_fog_color": 3804680,
+    "mood_sound": {
+      "block_search_extent": 8,
+      "offset": 2.0,
+      "sound": "minecraft:ambient.crimson_forest.mood",
+      "tick_delay": 6000
+    },
+    "particle": {
+      "probability": 0.3,
+      "options": {
+        "type": "minecraft:white_ash"
+      }
+    }
+  },
+  "features": [
+    [],
+    [
+      "minecraft:lake_lava_surface"
+    ],
+    [],
+    [],
+    [
+      "minecraft:delta",
+      "myriadbloom:burned_small_basalt_columns",
+      "myriadbloom:burned_large_basalt_columns"
+    ],
+    [],
+    [
+      "myriadbloom:burned_basalt_blobs",
+      "myriadbloom:burned_blackstone_blobs",
+      "myriadbloom:burned_magma",
+      "myriadbloom:burned_netherrack"
+    ],
+    [
+      "minecraft:spring_delta",
+      "minecraft:patch_fire",
+      "minecraft:patch_soul_fire",
+      "minecraft:glowstone_extra",
+      "minecraft:glowstone"
+    ],
+    [
+      "minecraft:spring_lava"
+    ],
+    [
+      "myriadbloom:burn_tree",
+      "myriadbloom:burnt_ruins"
+    ],
+    []
+  ],
+  "has_precipitation": false,
+  "spawn_costs": {},
+  "spawners": {
+    "monster": [
+      {
+        "type": "minecraft:magma_cube",
+        "weight": 60,
+        "minCount": 1,
+        "maxCount": 3
+      }
+    ],
+    "creature": [],
+    "ambient": [],
+    "axolotls": [],
+    "underground_water_creature": [],
+    "water_creature": [],
+    "water_ambient": [],
+    "misc": []
+  },
+  "temperature": 2.0
+}

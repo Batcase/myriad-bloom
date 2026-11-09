@@ -17,8 +17,7 @@
       "myriadbloom:frost_floor"
     ],
     [
-      "minecraft:lake_lava_underground",
-      "minecraft:lake_lava_surface"
+      "minecraft:lake_lava_underground"
     ],
     [
       "minecraft:amethyst_geode"
@@ -47,13 +46,14 @@
     ],
     [],
     [
-      "minecraft:spring_water",
-      "minecraft:spring_lava"
+      "minecraft:spring_water"
     ],
     [
       "myriadbloom:wishing_pool"
     ],
-    []
+    [
+      "minecraft:freeze_top_layer"
+    ]
   ],
   "has_precipitation": true,
   "spawn_costs": {},

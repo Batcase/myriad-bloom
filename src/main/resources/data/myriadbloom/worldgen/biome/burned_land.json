@@ -1,0 +1,63 @@
+{
+  "carvers": {},
+  "creature_spawn_probability": 0.07,
+  "downfall": 0.0,
+  "effects": {
+    "fog_color": 7023130,
+    "sky_color": 3804680,
+    "water_color": 9054736,
+    "water_fog_color": 3804680,
+    "mood_sound": {
+      "block_search_extent": 8,
+      "offset": 2.0,
+      "sound": "minecraft:ambient.crimson_forest.mood",
+      "tick_delay": 6000
+    },
+    "particle": {
+      "probability": 0.06,
+      "options": {
+        "type": "minecraft:ash"
+      }
+    }
+  },
+  "features": [
+    [],
+    [
+      "minecraft:lake_lava_surface"
+    ],
+    [],
+    [],
+    [],
+    [],
+    [
+      "myriadbloom:burned_blackstone_blobs",
+      "myriadbloom:burned_magma",
+      "myriadbloom:burned_netherrack"
+    ],
+    [
+      "minecraft:patch_fire",
+      "minecraft:glowstone_extra"
+    ],
+    [
+      "minecraft:spring_lava"
+    ],
+    [
+      "myriadbloom:burn_tree",
+      "myriadbloom:burnt_ruins"
+    ],
+    []
+  ],
+  "has_precipitation": false,
+  "spawn_costs": {},
+  "spawners": {
+    "monster": [],
+    "creature": [],
+    "ambient": [],
+    "axolotls": [],
+    "underground_water_creature": [],
+    "water_creature": [],
+    "water_ambient": [],
+    "misc": []
+  },
+  "temperature": 2.0
+}

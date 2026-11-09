@@ -3,14 +3,8 @@
   "minVersion": "0.8",
   "package": "com.myriadbloom.mixin",
   "compatibilityLevel": "JAVA_21",
-  "mixins": [
-    "LevelWeatherMixin",
-    "FrostFireMixin",
-    "LevelBlockEntityStasisMixin",
-    "ServerLevelStasisMixin"
-  ],
   "client": [
-    "ClientLevelSkyMixin"
+    "BossBarSpacingMixin"
   ],
   "injectors": {
     "defaultRequire": 1

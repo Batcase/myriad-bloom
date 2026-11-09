@@ -177,7 +177,9 @@ public final class FrostEvents {
 
         // Environment mechanics run in every dimension the mod owns: warmth gates itself on the frost
         // realm, thirst on the candy dimension, so dispatching for both is what makes them tick.
-        if (MyriadBloomApi.isMyriadBloom(level) || MyriadBloomApi.isCandy(level)) {
+        boolean timeVoid = level.dimension().equals(
+                com.myriadbloom.world.TimeVoidArenaMechanic.TIME_VOID);
+        if (MyriadBloomApi.isMyriadBloom(level) || MyriadBloomApi.isCandy(level) || timeVoid) {
             if (this.initialisedRealms.add(level.dimension())) {
                 MyriadBloom.LOGGER.info("Frost Realm level ready: {} ({} environment mechanics active)",
                         level.dimension().location(), EnvironmentMechanic.Registry.all().size());

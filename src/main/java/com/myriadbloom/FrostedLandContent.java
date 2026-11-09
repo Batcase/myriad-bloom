@@ -103,7 +103,8 @@ public final class FrostedLandContent {
             () -> new Block(BlockBehaviour.Properties.of()
                     .mapColor(MapColor.COLOR_LIGHT_BLUE)
                     .strength(0.3F)
-                    .lightLevel(state -> 15)
+                    // 亮度 11：低于融冰阈值（>11），村庄里的冰不会被灯烤化
+                    .lightLevel(state -> 11)
                     .sound(SoundType.GLASS)));
 
     public static final DeferredItem<BlockItem> FROST_LAMP_ITEM =
@@ -186,7 +187,52 @@ public final class FrostedLandContent {
             "frenzied_core",
             () -> new Item(new Item.Properties()));
 
+    /** 时之祭坛：1.5 格高的祭坛。 */
+    public static final DeferredBlock<com.myriadbloom.world.block.TimeAltarBlock> TIME_ALTAR =
+            MyriadBloom.BLOCKS.register("time_altar",
+                    () -> new com.myriadbloom.world.block.TimeAltarBlock(
+                            net.minecraft.world.level.block.state.BlockBehaviour.Properties.of()
+                                    .mapColor(net.minecraft.world.level.material.MapColor.ICE)
+                                    .strength(3.0F, 1200.0F)
+                                    .lightLevel(state -> 7)
+                                    .sound(net.minecraft.world.level.block.SoundType.AMETHYST)
+                                    .noOcclusion()));
+
+    /** 永不熄灭的炉心。 */
+    public static final DeferredBlock<com.myriadbloom.world.block.EverburningCoreBlock> EVERBURNING_CORE =
+            MyriadBloom.BLOCKS.register("everburning_core",
+                    () -> new com.myriadbloom.world.block.EverburningCoreBlock(
+                            net.minecraft.world.level.block.state.BlockBehaviour.Properties.of()
+                                    .mapColor(net.minecraft.world.level.material.MapColor.COLOR_ORANGE)
+                                    .strength(2.0F, 6.0F)
+                                    .lightLevel(state -> 15)
+                                    .sound(net.minecraft.world.level.block.SoundType.GLASS)
+                                    .noOcclusion()));
+
+    public static final DeferredItem<BlockItem> EVERBURNING_CORE_ITEM =
+            MyriadBloom.ITEMS.registerSimpleBlockItem("everburning_core", EVERBURNING_CORE);
+
+    public static final DeferredItem<BlockItem> TIME_ALTAR_ITEM =
+            MyriadBloom.ITEMS.registerSimpleBlockItem("time_altar", TIME_ALTAR);
+
+    /** 迷宫锁孔。 */
+    public static final DeferredBlock<com.myriadbloom.world.block.MazeLockBlock> MAZE_LOCK =
+            MyriadBloom.BLOCKS.register("maze_lock",
+                    () -> new com.myriadbloom.world.block.MazeLockBlock(
+                            net.minecraft.world.level.block.state.BlockBehaviour.Properties.of()
+                                    .mapColor(net.minecraft.world.level.material.MapColor.COLOR_CYAN)
+                                    .strength(-1.0F, 3600000.0F)
+                                    .lightLevel(state -> 5)
+                                    .sound(net.minecraft.world.level.block.SoundType.METAL)
+                                    .noOcclusion()));
+
+    public static final DeferredItem<BlockItem> MAZE_LOCK_ITEM =
+            MyriadBloom.ITEMS.registerSimpleBlockItem("maze_lock", MAZE_LOCK);
+
     public static void bootstrap() {
+        ModItems.CREATIVE_TAB_ITEMS.add(TIME_ALTAR_ITEM);
+        ModItems.CREATIVE_TAB_ITEMS.add(MAZE_LOCK_ITEM);
+        ModItems.CREATIVE_TAB_ITEMS.add(EVERBURNING_CORE_ITEM);
         ModItems.CREATIVE_TAB_ITEMS.add(GIANT_LOG_ITEM);
         ModItems.CREATIVE_TAB_ITEMS.add(GIANT_LEAVES_ITEM);
         ModItems.CREATIVE_TAB_ITEMS.add(GIANT_SAPLING_ITEM);

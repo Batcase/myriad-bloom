@@ -73,6 +73,11 @@ public class FrostMobCleanupMechanic implements EnvironmentMechanic {
     }
 
     private static boolean isWhitelisted(EntityType<?> type) {
+        // 模组自己的生物一律放过，否则 BOSS 会被当成"残留敌对生物"清掉
+        var key = net.minecraft.core.registries.BuiltInRegistries.ENTITY_TYPE.getKey(type);
+        if (key != null && key.getNamespace().equals(com.myriadbloom.MyriadBloom.MODID)) {
+            return true;
+        }
         return type == EntityType.ZOMBIE
                 || type == EntityType.STRAY
                 || type == EntityType.GOAT

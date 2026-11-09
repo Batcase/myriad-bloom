@@ -58,7 +58,20 @@ public final class StormWoodlandMechanic implements EnvironmentMechanic {
             return;
         }
         if (hasSlainBoss(player)) {
-            this.cursed.remove(player.getUUID());
+            // 击败过极冰聚合物：风雪对你不再生效
+            if (this.cursed.remove(player.getUUID())) {
+                player.removeEffect(MobEffects.BLINDNESS);
+                player.removeEffect(MobEffects.MOVEMENT_SLOWDOWN);
+            }
+            com.myriadbloom.world.AdvancementAward.award(player, "storm_clear");
+            return;
+        }
+        // 创造/旁观模式无视所有前置条件与风雪惩罚
+        if (player.isCreative() || player.isSpectator()) {
+            if (this.cursed.remove(player.getUUID())) {
+                player.removeEffect(MobEffects.BLINDNESS);
+                player.removeEffect(MobEffects.MOVEMENT_SLOWDOWN);
+            }
             return;
         }
         this.cursed.add(player.getUUID());

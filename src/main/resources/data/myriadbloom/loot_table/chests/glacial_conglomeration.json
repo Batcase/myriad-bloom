@@ -143,6 +143,15 @@
           ]
         }
       ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "myriadbloom:frost_key"
+        }
+      ]
     }
   ]
 }

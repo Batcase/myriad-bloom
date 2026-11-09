@@ -76,48 +76,53 @@ public final class StormMazeMechanic implements EnvironmentMechanic {
         if (anchor == null) {
             return;
         }
-        int[] centre = CongealedLandFeature.patchCentre(anchor.blockPosition().getX() >> 4,
-                anchor.blockPosition().getZ() >> 4);
+        // 迷宫按“风暴林地片区”生成：以 512 格网格为片区，中心取片区的正中央
+        int gridX = Math.floorDiv(anchor.blockPosition().getX(), 512) * 512 + 256;
+        int gridZ = Math.floorDiv(anchor.blockPosition().getZ(), 512) * 512 + 256;
+        int[] centre = {gridX, gridZ};
+        if (!isStormWoodland(level, centre[0], centre[1])) {
+            // 网格中心不在风暴林地时，退回到玩家附近，保证至少能建一座
+            centre = new int[] {anchor.blockPosition().getX(), anchor.blockPosition().getZ()};
+        }
         double dx = anchor.getX() - centre[0];
         double dz = anchor.getZ() - centre[1];
         if (dx * dx + dz * dz > ACTIVATION_RANGE * ACTIVATION_RANGE) {
             return;
         }
-        // 没有风暴林地的区域（比如落在海洋上被跳过）不要建迷宫
-        // 只在该区域确实是风暴林地时建迷宫：落在海洋上的区域会被群系判定跳过。
-        // 这里只查已加载的区块，避免为了判断群系而强行生成地形。
-        long regionKey = regionKey(centre[0], centre[1]);
+        final int centreX = centre[0];
+        final int centreZ = centre[1];
+        long regionKey = regionKey(centreX, centreZ);
         StormMaze.Layout layout = this.layouts.computeIfAbsent(regionKey,
-                key -> StormMaze.layout(centre[0], centre[1]));
-        // 封印之山建在凝结之地中心，和风暴林地无关，所以先处理
-        ensureSealedMountain(level, layout);
+                key -> StormMaze.layout(centreX, centreZ));
+        // 封印之山建在凝结之地中心，与迷宫中心无关
+        int[] congealed = CongealedLandFeature.patchCentre(anchor.blockPosition().getX() >> 4,
+                anchor.blockPosition().getZ() >> 4);
+        StormMaze.Layout mountainLayout = this.layouts.computeIfAbsent(
+                regionKey(congealed[0], congealed[1]),
+                key -> StormMaze.layout(congealed[0], congealed[1]));
+        ensureSealedMountain(level, mountainLayout);
         com.myriadbloom.world.gen.SealedMountain.tick(level);
-        // 迷宫只在确实是风暴林地的区域建
-        if (!level.hasChunk(centre[0] >> 4, centre[1] >> 4)
-                || !level.getBiome(new BlockPos(centre[0], StormMaze.FLOOR_Y + 8, centre[1]))
-                        .unwrapKey()
-                        .map(key -> key.location().getPath().equals("frost_storm_woodland"))
-                        .orElse(false)) {
+        if (!level.hasChunk(centreX >> 4, centreZ >> 4)
+                || !isStormWoodland(level, centreX, centreZ)) {
             return;
         }
         tickQueue(level, regionKey, layout, CHUNKS_PER_TICK);
         tickBossRoom(level, layout);
     }
 
-    /** 凝结之地中心的封印之山：没有少女就建一次（幂等）。 */
+    /** 凝结之地中心的封印之山：每个区域只建一次，记录在 SavedData 里。 */
     private void ensureSealedMountain(ServerLevel level, StormMaze.Layout layout) {
-        var box = new net.minecraft.world.phys.AABB(
-                layout.centreX - 12, StormMaze.FLOOR_Y, layout.centreZ - 12,
-                layout.centreX + 12, 320, layout.centreZ + 12);
-        if (!level.getEntitiesOfClass(com.myriadbloom.world.entity.SealedMaiden.class, box).isEmpty()) {
+        var guard = com.myriadbloom.world.SealedSiteGuard.of(level);
+        if (guard.isBuilt(layout.centreX, layout.centreZ)
+                || com.myriadbloom.world.gen.SealedMountain.isBuilding(layout.centreX, layout.centreZ)) {
             return;
         }
-        if (com.myriadbloom.world.gen.SealedMountain.isBuilding(layout.centreX, layout.centreZ)) {
+        if (!level.hasChunk(layout.centreX >> 4, layout.centreZ >> 4)) {
             return;
         }
-        if (level.hasChunk(layout.centreX >> 4, layout.centreZ >> 4)) {
-            com.myriadbloom.world.gen.SealedMountain.start(level, layout.centreX, layout.centreZ);
-        }
+        // 先登记再开工，避免同一 tick 内重复排队
+        guard.markBuilt(layout.centreX, layout.centreZ);
+        com.myriadbloom.world.gen.SealedMountain.start(level, layout.centreX, layout.centreZ);
     }
 
     /** 玩家踏进中央厅时唤醒风暴棱镜，并击碎厅里的热源。 */
@@ -370,5 +375,11 @@ public final class StormMazeMechanic implements EnvironmentMechanic {
         public int size() {
             return this.built.size();
         }
+    }
+
+    private static boolean isStormWoodland(ServerLevel level, int x, int z) {
+        return level.getBiome(new BlockPos(x, StormMaze.FLOOR_Y + 8, z)).unwrapKey()
+                .map(key -> key.location().getPath().equals("frost_storm_woodland"))
+                .orElse(false);
     }
 }

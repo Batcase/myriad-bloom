@@ -109,6 +109,76 @@ public final class BossContent {
             "time_sand", () -> new TimeSandItem(new Item.Properties().rarity(net.minecraft.world.item.Rarity.RARE)));
 
     /** 始源人战利品: the ape's skull, worn like a vanilla head. */
+    /** 棱镜碎片：风暴棱镜的掉落物。 */
+    public static final DeferredItem<net.minecraft.world.item.Item> PRISM_SHARD = MyriadBloom.ITEMS.register(
+            "prism_shard", () -> new net.minecraft.world.item.Item(
+                    new net.minecraft.world.item.Item.Properties().rarity(net.minecraft.world.item.Rarity.RARE)));
+
+    /** 冰霜之钥：极冰聚合物的掉落物，用于开启迷宫入口。 */
+    public static final DeferredItem<com.myriadbloom.item.FrostKeyItem> FROST_KEY =
+            MyriadBloom.ITEMS.register("frost_key",
+                    () -> new com.myriadbloom.item.FrostKeyItem(
+                            new net.minecraft.world.item.Item.Properties().stacksTo(1)
+                                    .rarity(net.minecraft.world.item.Rarity.EPIC)));
+
+    /** 时之沙漏（未充能）。 */
+    public static final DeferredItem<com.myriadbloom.item.HourglassItem> HOURGLASS =
+            MyriadBloom.ITEMS.register("hourglass",
+                    () -> new com.myriadbloom.item.HourglassItem(
+                            new net.minecraft.world.item.Item.Properties().stacksTo(1)
+                                    .rarity(net.minecraft.world.item.Rarity.EPIC), false));
+
+    /** 风暴棱镜战利品。 */
+    /** 赋能的时之沙：金色词条。 */
+    public static final DeferredItem<com.myriadbloom.item.EmpoweredTimeSandItem> EMPOWERED_TIME_SAND =
+            MyriadBloom.ITEMS.register("empowered_time_sand",
+                    () -> new com.myriadbloom.item.EmpoweredTimeSandItem(
+                            new net.minecraft.world.item.Item.Properties()
+                                    .rarity(net.minecraft.world.item.Rarity.EPIC)));
+
+    /** 骑士之誓：细长骑士剑，攻击 12。 */
+    public static final DeferredItem<com.myriadbloom.item.KnightOathItem> KNIGHT_OATH =
+            MyriadBloom.ITEMS.register("knight_oath",
+                    () -> new com.myriadbloom.item.KnightOathItem(
+                            com.myriadbloom.item.KnightOathTier.INSTANCE,
+                            new net.minecraft.world.item.Item.Properties()
+                                    .rarity(net.minecraft.world.item.Rarity.EPIC)
+                                    .attributes(net.minecraft.world.item.SwordItem.createAttributes(
+                                            com.myriadbloom.item.KnightOathTier.INSTANCE, 8, -2.4F))));
+
+    public static final DeferredItem<com.myriadbloom.item.StormPrismTrophyItem> STORM_PRISM_TROPHY =
+            MyriadBloom.ITEMS.register("storm_prism_trophy",
+                    () -> new com.myriadbloom.item.StormPrismTrophyItem(
+                            new net.minecraft.world.item.Item.Properties()));
+
+    /** 霜之哀伤：10 点伤害的冰剑，自带【亡灵序曲】。 */
+    public static final DeferredItem<com.myriadbloom.item.FrostmourneItem> FROSTMOURNE =
+            MyriadBloom.ITEMS.register("frostmourne",
+                    () -> new com.myriadbloom.item.FrostmourneItem(net.minecraft.world.item.Tiers.DIAMOND,
+                            new net.minecraft.world.item.Item.Properties()
+                                    .rarity(net.minecraft.world.item.Rarity.EPIC)
+                                    .attributes(net.minecraft.world.item.SwordItem.createAttributes(
+                                            net.minecraft.world.item.Tiers.DIAMOND, 7, -2.4F))
+                                    .component(net.minecraft.core.component.DataComponents.ENCHANTMENTS,
+                                            net.minecraft.world.item.enchantment.ItemEnchantments.EMPTY)));
+
+    /** 覆雪之镐。 */
+    public static final DeferredItem<net.minecraft.world.item.PickaxeItem> SNOW_PICKAXE =
+            MyriadBloom.ITEMS.register("snow_pickaxe",
+                    () -> new net.minecraft.world.item.PickaxeItem(net.minecraft.world.item.Tiers.DIAMOND,
+                            new net.minecraft.world.item.Item.Properties()
+                                    .rarity(net.minecraft.world.item.Rarity.RARE)
+                                    .attributes(net.minecraft.world.item.PickaxeItem.createAttributes(
+                                            net.minecraft.world.item.Tiers.DIAMOND, 2.0F, -2.8F))));
+
+    /** 已充能的时之沙漏：20 次使用。 */
+    public static final DeferredItem<com.myriadbloom.item.ChargedHourglassItem> CHARGED_HOURGLASS =
+            MyriadBloom.ITEMS.register("charged_hourglass",
+                    () -> new com.myriadbloom.item.ChargedHourglassItem(
+                            new net.minecraft.world.item.Item.Properties()
+                                    .stacksTo(1)
+                                    .rarity(net.minecraft.world.item.Rarity.EPIC)));
+
     public static final DeferredItem<com.myriadbloom.item.OriginApeTrophyItem> ORIGIN_APE_TROPHY =
             MyriadBloom.ITEMS.register("origin_ape_trophy",
                     () -> new com.myriadbloom.item.OriginApeTrophyItem(new Item.Properties()));
@@ -117,6 +187,15 @@ public final class BossContent {
         ModItems.CREATIVE_TAB_ITEMS.add(BOSS_SPAWNER_ITEM);
         ModItems.CREATIVE_TAB_ITEMS.add(GIANT_CHEST_ITEM);
         ModItems.CREATIVE_TAB_ITEMS.add(TIME_SAND);
+        ModItems.CREATIVE_TAB_ITEMS.add(PRISM_SHARD);
+        ModItems.CREATIVE_TAB_ITEMS.add(FROST_KEY);
+        ModItems.CREATIVE_TAB_ITEMS.add(HOURGLASS);
+        ModItems.CREATIVE_TAB_ITEMS.add(STORM_PRISM_TROPHY);
+        ModItems.CREATIVE_TAB_ITEMS.add(FROSTMOURNE);
+        ModItems.CREATIVE_TAB_ITEMS.add(SNOW_PICKAXE);
+        ModItems.CREATIVE_TAB_ITEMS.add(EMPOWERED_TIME_SAND);
+        ModItems.CREATIVE_TAB_ITEMS.add(KNIGHT_OATH);
+        ModItems.CREATIVE_TAB_ITEMS.add(CHARGED_HOURGLASS);
         ModItems.CREATIVE_TAB_ITEMS.add(ICE_CORE);
         ModItems.CREATIVE_TAB_ITEMS.add(GLACIAL_TROPHY);
         ModItems.CREATIVE_TAB_ITEMS.add(TROPHY_ITEM);

@@ -19,7 +19,7 @@ import net.minecraft.world.phys.Vec3;
  * <p>It is spawned high above the target and falls at a constant speed, so the impact always happens
  * about 1.5 seconds after the cast - enough time to step aside.</p>
  */
-public class StormIceShard extends Entity {
+public class StormIceShard extends Entity implements net.minecraft.world.entity.projectile.ItemSupplier {
     /** Blocks per tick; 14 blocks of travel take about 30 ticks (1.5 s). */
     private static final double FALL_SPEED = 0.47D;
     private static final float DAMAGE = 8.0F;
@@ -89,5 +89,10 @@ public class StormIceShard extends Entity {
     @Override
     public boolean isAttackable() {
         return false;
+    }
+
+    @Override
+    public net.minecraft.world.item.ItemStack getItem() {
+        return new net.minecraft.world.item.ItemStack(net.minecraft.world.item.Items.PACKED_ICE);
     }
 }

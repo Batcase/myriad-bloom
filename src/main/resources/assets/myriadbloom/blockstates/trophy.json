@@ -3,49 +3,13 @@
     "facing=north,glacial=false,rotation=0,wall=false": {
       "model": "minecraft:block/air"
     },
-    "facing=north,glacial=false,rotation=1,wall=false": {
+    "facing=east,glacial=false,rotation=0,wall=false": {
       "model": "minecraft:block/air"
     },
-    "facing=north,glacial=false,rotation=2,wall=false": {
+    "facing=south,glacial=false,rotation=0,wall=false": {
       "model": "minecraft:block/air"
     },
-    "facing=north,glacial=false,rotation=3,wall=false": {
-      "model": "minecraft:block/air"
-    },
-    "facing=north,glacial=false,rotation=4,wall=false": {
-      "model": "minecraft:block/air"
-    },
-    "facing=north,glacial=false,rotation=5,wall=false": {
-      "model": "minecraft:block/air"
-    },
-    "facing=north,glacial=false,rotation=6,wall=false": {
-      "model": "minecraft:block/air"
-    },
-    "facing=north,glacial=false,rotation=7,wall=false": {
-      "model": "minecraft:block/air"
-    },
-    "facing=north,glacial=false,rotation=8,wall=false": {
-      "model": "minecraft:block/air"
-    },
-    "facing=north,glacial=false,rotation=9,wall=false": {
-      "model": "minecraft:block/air"
-    },
-    "facing=north,glacial=false,rotation=10,wall=false": {
-      "model": "minecraft:block/air"
-    },
-    "facing=north,glacial=false,rotation=11,wall=false": {
-      "model": "minecraft:block/air"
-    },
-    "facing=north,glacial=false,rotation=12,wall=false": {
-      "model": "minecraft:block/air"
-    },
-    "facing=north,glacial=false,rotation=13,wall=false": {
-      "model": "minecraft:block/air"
-    },
-    "facing=north,glacial=false,rotation=14,wall=false": {
-      "model": "minecraft:block/air"
-    },
-    "facing=north,glacial=false,rotation=15,wall=false": {
+    "facing=west,glacial=false,rotation=0,wall=false": {
       "model": "minecraft:block/air"
     },
     "facing=north,glacial=false,rotation=0,wall=true": {
@@ -60,52 +24,376 @@
     "facing=west,glacial=false,rotation=0,wall=true": {
       "model": "minecraft:block/air"
     },
+    "facing=north,glacial=false,rotation=1,wall=false": {
+      "model": "minecraft:block/air"
+    },
+    "facing=east,glacial=false,rotation=1,wall=false": {
+      "model": "minecraft:block/air"
+    },
+    "facing=south,glacial=false,rotation=1,wall=false": {
+      "model": "minecraft:block/air"
+    },
+    "facing=west,glacial=false,rotation=1,wall=false": {
+      "model": "minecraft:block/air"
+    },
+    "facing=north,glacial=false,rotation=1,wall=true": {
+      "model": "minecraft:block/air"
+    },
+    "facing=east,glacial=false,rotation=1,wall=true": {
+      "model": "minecraft:block/air"
+    },
+    "facing=south,glacial=false,rotation=1,wall=true": {
+      "model": "minecraft:block/air"
+    },
+    "facing=west,glacial=false,rotation=1,wall=true": {
+      "model": "minecraft:block/air"
+    },
+    "facing=north,glacial=false,rotation=2,wall=false": {
+      "model": "minecraft:block/air"
+    },
+    "facing=east,glacial=false,rotation=2,wall=false": {
+      "model": "minecraft:block/air"
+    },
+    "facing=south,glacial=false,rotation=2,wall=false": {
+      "model": "minecraft:block/air"
+    },
+    "facing=west,glacial=false,rotation=2,wall=false": {
+      "model": "minecraft:block/air"
+    },
+    "facing=north,glacial=false,rotation=2,wall=true": {
+      "model": "minecraft:block/air"
+    },
+    "facing=east,glacial=false,rotation=2,wall=true": {
+      "model": "minecraft:block/air"
+    },
+    "facing=south,glacial=false,rotation=2,wall=true": {
+      "model": "minecraft:block/air"
+    },
+    "facing=west,glacial=false,rotation=2,wall=true": {
+      "model": "minecraft:block/air"
+    },
+    "facing=north,glacial=false,rotation=3,wall=false": {
+      "model": "minecraft:block/air"
+    },
+    "facing=east,glacial=false,rotation=3,wall=false": {
+      "model": "minecraft:block/air"
+    },
+    "facing=south,glacial=false,rotation=3,wall=false": {
+      "model": "minecraft:block/air"
+    },
+    "facing=west,glacial=false,rotation=3,wall=false": {
+      "model": "minecraft:block/air"
+    },
+    "facing=north,glacial=false,rotation=3,wall=true": {
+      "model": "minecraft:block/air"
+    },
+    "facing=east,glacial=false,rotation=3,wall=true": {
+      "model": "minecraft:block/air"
+    },
+    "facing=south,glacial=false,rotation=3,wall=true": {
+      "model": "minecraft:block/air"
+    },
+    "facing=west,glacial=false,rotation=3,wall=true": {
+      "model": "minecraft:block/air"
+    },
+    "facing=north,glacial=false,rotation=4,wall=false": {
+      "model": "minecraft:block/air"
+    },
+    "facing=east,glacial=false,rotation=4,wall=false": {
+      "model": "minecraft:block/air"
+    },
+    "facing=south,glacial=false,rotation=4,wall=false": {
+      "model": "minecraft:block/air"
+    },
+    "facing=west,glacial=false,rotation=4,wall=false": {
+      "model": "minecraft:block/air"
+    },
+    "facing=north,glacial=false,rotation=4,wall=true": {
+      "model": "minecraft:block/air"
+    },
+    "facing=east,glacial=false,rotation=4,wall=true": {
+      "model": "minecraft:block/air"
+    },
+    "facing=south,glacial=false,rotation=4,wall=true": {
+      "model": "minecraft:block/air"
+    },
+    "facing=west,glacial=false,rotation=4,wall=true": {
+      "model": "minecraft:block/air"
+    },
+    "facing=north,glacial=false,rotation=5,wall=false": {
+      "model": "minecraft:block/air"
+    },
+    "facing=east,glacial=false,rotation=5,wall=false": {
+      "model": "minecraft:block/air"
+    },
+    "facing=south,glacial=false,rotation=5,wall=false": {
+      "model": "minecraft:block/air"
+    },
+    "facing=west,glacial=false,rotation=5,wall=false": {
+      "model": "minecraft:block/air"
+    },
+    "facing=north,glacial=false,rotation=5,wall=true": {
+      "model": "minecraft:block/air"
+    },
+    "facing=east,glacial=false,rotation=5,wall=true": {
+      "model": "minecraft:block/air"
+    },
+    "facing=south,glacial=false,rotation=5,wall=true": {
+      "model": "minecraft:block/air"
+    },
+    "facing=west,glacial=false,rotation=5,wall=true": {
+      "model": "minecraft:block/air"
+    },
+    "facing=north,glacial=false,rotation=6,wall=false": {
+      "model": "minecraft:block/air"
+    },
+    "facing=east,glacial=false,rotation=6,wall=false": {
+      "model": "minecraft:block/air"
+    },
+    "facing=south,glacial=false,rotation=6,wall=false": {
+      "model": "minecraft:block/air"
+    },
+    "facing=west,glacial=false,rotation=6,wall=false": {
+      "model": "minecraft:block/air"
+    },
+    "facing=north,glacial=false,rotation=6,wall=true": {
+      "model": "minecraft:block/air"
+    },
+    "facing=east,glacial=false,rotation=6,wall=true": {
+      "model": "minecraft:block/air"
+    },
+    "facing=south,glacial=false,rotation=6,wall=true": {
+      "model": "minecraft:block/air"
+    },
+    "facing=west,glacial=false,rotation=6,wall=true": {
+      "model": "minecraft:block/air"
+    },
+    "facing=north,glacial=false,rotation=7,wall=false": {
+      "model": "minecraft:block/air"
+    },
+    "facing=east,glacial=false,rotation=7,wall=false": {
+      "model": "minecraft:block/air"
+    },
+    "facing=south,glacial=false,rotation=7,wall=false": {
+      "model": "minecraft:block/air"
+    },
+    "facing=west,glacial=false,rotation=7,wall=false": {
+      "model": "minecraft:block/air"
+    },
+    "facing=north,glacial=false,rotation=7,wall=true": {
+      "model": "minecraft:block/air"
+    },
+    "facing=east,glacial=false,rotation=7,wall=true": {
+      "model": "minecraft:block/air"
+    },
+    "facing=south,glacial=false,rotation=7,wall=true": {
+      "model": "minecraft:block/air"
+    },
+    "facing=west,glacial=false,rotation=7,wall=true": {
+      "model": "minecraft:block/air"
+    },
+    "facing=north,glacial=false,rotation=8,wall=false": {
+      "model": "minecraft:block/air"
+    },
+    "facing=east,glacial=false,rotation=8,wall=false": {
+      "model": "minecraft:block/air"
+    },
+    "facing=south,glacial=false,rotation=8,wall=false": {
+      "model": "minecraft:block/air"
+    },
+    "facing=west,glacial=false,rotation=8,wall=false": {
+      "model": "minecraft:block/air"
+    },
+    "facing=north,glacial=false,rotation=8,wall=true": {
+      "model": "minecraft:block/air"
+    },
+    "facing=east,glacial=false,rotation=8,wall=true": {
+      "model": "minecraft:block/air"
+    },
+    "facing=south,glacial=false,rotation=8,wall=true": {
+      "model": "minecraft:block/air"
+    },
+    "facing=west,glacial=false,rotation=8,wall=true": {
+      "model": "minecraft:block/air"
+    },
+    "facing=north,glacial=false,rotation=9,wall=false": {
+      "model": "minecraft:block/air"
+    },
+    "facing=east,glacial=false,rotation=9,wall=false": {
+      "model": "minecraft:block/air"
+    },
+    "facing=south,glacial=false,rotation=9,wall=false": {
+      "model": "minecraft:block/air"
+    },
+    "facing=west,glacial=false,rotation=9,wall=false": {
+      "model": "minecraft:block/air"
+    },
+    "facing=north,glacial=false,rotation=9,wall=true": {
+      "model": "minecraft:block/air"
+    },
+    "facing=east,glacial=false,rotation=9,wall=true": {
+      "model": "minecraft:block/air"
+    },
+    "facing=south,glacial=false,rotation=9,wall=true": {
+      "model": "minecraft:block/air"
+    },
+    "facing=west,glacial=false,rotation=9,wall=true": {
+      "model": "minecraft:block/air"
+    },
+    "facing=north,glacial=false,rotation=10,wall=false": {
+      "model": "minecraft:block/air"
+    },
+    "facing=east,glacial=false,rotation=10,wall=false": {
+      "model": "minecraft:block/air"
+    },
+    "facing=south,glacial=false,rotation=10,wall=false": {
+      "model": "minecraft:block/air"
+    },
+    "facing=west,glacial=false,rotation=10,wall=false": {
+      "model": "minecraft:block/air"
+    },
+    "facing=north,glacial=false,rotation=10,wall=true": {
+      "model": "minecraft:block/air"
+    },
+    "facing=east,glacial=false,rotation=10,wall=true": {
+      "model": "minecraft:block/air"
+    },
+    "facing=south,glacial=false,rotation=10,wall=true": {
+      "model": "minecraft:block/air"
+    },
+    "facing=west,glacial=false,rotation=10,wall=true": {
+      "model": "minecraft:block/air"
+    },
+    "facing=north,glacial=false,rotation=11,wall=false": {
+      "model": "minecraft:block/air"
+    },
+    "facing=east,glacial=false,rotation=11,wall=false": {
+      "model": "minecraft:block/air"
+    },
+    "facing=south,glacial=false,rotation=11,wall=false": {
+      "model": "minecraft:block/air"
+    },
+    "facing=west,glacial=false,rotation=11,wall=false": {
+      "model": "minecraft:block/air"
+    },
+    "facing=north,glacial=false,rotation=11,wall=true": {
+      "model": "minecraft:block/air"
+    },
+    "facing=east,glacial=false,rotation=11,wall=true": {
+      "model": "minecraft:block/air"
+    },
+    "facing=south,glacial=false,rotation=11,wall=true": {
+      "model": "minecraft:block/air"
+    },
+    "facing=west,glacial=false,rotation=11,wall=true": {
+      "model": "minecraft:block/air"
+    },
+    "facing=north,glacial=false,rotation=12,wall=false": {
+      "model": "minecraft:block/air"
+    },
+    "facing=east,glacial=false,rotation=12,wall=false": {
+      "model": "minecraft:block/air"
+    },
+    "facing=south,glacial=false,rotation=12,wall=false": {
+      "model": "minecraft:block/air"
+    },
+    "facing=west,glacial=false,rotation=12,wall=false": {
+      "model": "minecraft:block/air"
+    },
+    "facing=north,glacial=false,rotation=12,wall=true": {
+      "model": "minecraft:block/air"
+    },
+    "facing=east,glacial=false,rotation=12,wall=true": {
+      "model": "minecraft:block/air"
+    },
+    "facing=south,glacial=false,rotation=12,wall=true": {
+      "model": "minecraft:block/air"
+    },
+    "facing=west,glacial=false,rotation=12,wall=true": {
+      "model": "minecraft:block/air"
+    },
+    "facing=north,glacial=false,rotation=13,wall=false": {
+      "model": "minecraft:block/air"
+    },
+    "facing=east,glacial=false,rotation=13,wall=false": {
+      "model": "minecraft:block/air"
+    },
+    "facing=south,glacial=false,rotation=13,wall=false": {
+      "model": "minecraft:block/air"
+    },
+    "facing=west,glacial=false,rotation=13,wall=false": {
+      "model": "minecraft:block/air"
+    },
+    "facing=north,glacial=false,rotation=13,wall=true": {
+      "model": "minecraft:block/air"
+    },
+    "facing=east,glacial=false,rotation=13,wall=true": {
+      "model": "minecraft:block/air"
+    },
+    "facing=south,glacial=false,rotation=13,wall=true": {
+      "model": "minecraft:block/air"
+    },
+    "facing=west,glacial=false,rotation=13,wall=true": {
+      "model": "minecraft:block/air"
+    },
+    "facing=north,glacial=false,rotation=14,wall=false": {
+      "model": "minecraft:block/air"
+    },
+    "facing=east,glacial=false,rotation=14,wall=false": {
+      "model": "minecraft:block/air"
+    },
+    "facing=south,glacial=false,rotation=14,wall=false": {
+      "model": "minecraft:block/air"
+    },
+    "facing=west,glacial=false,rotation=14,wall=false": {
+      "model": "minecraft:block/air"
+    },
+    "facing=north,glacial=false,rotation=14,wall=true": {
+      "model": "minecraft:block/air"
+    },
+    "facing=east,glacial=false,rotation=14,wall=true": {
+      "model": "minecraft:block/air"
+    },
+    "facing=south,glacial=false,rotation=14,wall=true": {
+      "model": "minecraft:block/air"
+    },
+    "facing=west,glacial=false,rotation=14,wall=true": {
+      "model": "minecraft:block/air"
+    },
+    "facing=north,glacial=false,rotation=15,wall=false": {
+      "model": "minecraft:block/air"
+    },
+    "facing=east,glacial=false,rotation=15,wall=false": {
+      "model": "minecraft:block/air"
+    },
+    "facing=south,glacial=false,rotation=15,wall=false": {
+      "model": "minecraft:block/air"
+    },
+    "facing=west,glacial=false,rotation=15,wall=false": {
+      "model": "minecraft:block/air"
+    },
+    "facing=north,glacial=false,rotation=15,wall=true": {
+      "model": "minecraft:block/air"
+    },
+    "facing=east,glacial=false,rotation=15,wall=true": {
+      "model": "minecraft:block/air"
+    },
+    "facing=south,glacial=false,rotation=15,wall=true": {
+      "model": "minecraft:block/air"
+    },
+    "facing=west,glacial=false,rotation=15,wall=true": {
+      "model": "minecraft:block/air"
+    },
     "facing=north,glacial=true,rotation=0,wall=false": {
       "model": "minecraft:block/air"
     },
-    "facing=north,glacial=true,rotation=1,wall=false": {
+    "facing=east,glacial=true,rotation=0,wall=false": {
       "model": "minecraft:block/air"
     },
-    "facing=north,glacial=true,rotation=2,wall=false": {
+    "facing=south,glacial=true,rotation=0,wall=false": {
       "model": "minecraft:block/air"
     },
-    "facing=north,glacial=true,rotation=3,wall=false": {
-      "model": "minecraft:block/air"
-    },
-    "facing=north,glacial=true,rotation=4,wall=false": {
-      "model": "minecraft:block/air"
-    },
-    "facing=north,glacial=true,rotation=5,wall=false": {
-      "model": "minecraft:block/air"
-    },
-    "facing=north,glacial=true,rotation=6,wall=false": {
-      "model": "minecraft:block/air"
-    },
-    "facing=north,glacial=true,rotation=7,wall=false": {
-      "model": "minecraft:block/air"
-    },
-    "facing=north,glacial=true,rotation=8,wall=false": {
-      "model": "minecraft:block/air"
-    },
-    "facing=north,glacial=true,rotation=9,wall=false": {
-      "model": "minecraft:block/air"
-    },
-    "facing=north,glacial=true,rotation=10,wall=false": {
-      "model": "minecraft:block/air"
-    },
-    "facing=north,glacial=true,rotation=11,wall=false": {
-      "model": "minecraft:block/air"
-    },
-    "facing=north,glacial=true,rotation=12,wall=false": {
-      "model": "minecraft:block/air"
-    },
-    "facing=north,glacial=true,rotation=13,wall=false": {
-      "model": "minecraft:block/air"
-    },
-    "facing=north,glacial=true,rotation=14,wall=false": {
-      "model": "minecraft:block/air"
-    },
-    "facing=north,glacial=true,rotation=15,wall=false": {
+    "facing=west,glacial=true,rotation=0,wall=false": {
       "model": "minecraft:block/air"
     },
     "facing=north,glacial=true,rotation=0,wall=true": {
@@ -118,6 +406,366 @@
       "model": "minecraft:block/air"
     },
     "facing=west,glacial=true,rotation=0,wall=true": {
+      "model": "minecraft:block/air"
+    },
+    "facing=north,glacial=true,rotation=1,wall=false": {
+      "model": "minecraft:block/air"
+    },
+    "facing=east,glacial=true,rotation=1,wall=false": {
+      "model": "minecraft:block/air"
+    },
+    "facing=south,glacial=true,rotation=1,wall=false": {
+      "model": "minecraft:block/air"
+    },
+    "facing=west,glacial=true,rotation=1,wall=false": {
+      "model": "minecraft:block/air"
+    },
+    "facing=north,glacial=true,rotation=1,wall=true": {
+      "model": "minecraft:block/air"
+    },
+    "facing=east,glacial=true,rotation=1,wall=true": {
+      "model": "minecraft:block/air"
+    },
+    "facing=south,glacial=true,rotation=1,wall=true": {
+      "model": "minecraft:block/air"
+    },
+    "facing=west,glacial=true,rotation=1,wall=true": {
+      "model": "minecraft:block/air"
+    },
+    "facing=north,glacial=true,rotation=2,wall=false": {
+      "model": "minecraft:block/air"
+    },
+    "facing=east,glacial=true,rotation=2,wall=false": {
+      "model": "minecraft:block/air"
+    },
+    "facing=south,glacial=true,rotation=2,wall=false": {
+      "model": "minecraft:block/air"
+    },
+    "facing=west,glacial=true,rotation=2,wall=false": {
+      "model": "minecraft:block/air"
+    },
+    "facing=north,glacial=true,rotation=2,wall=true": {
+      "model": "minecraft:block/air"
+    },
+    "facing=east,glacial=true,rotation=2,wall=true": {
+      "model": "minecraft:block/air"
+    },
+    "facing=south,glacial=true,rotation=2,wall=true": {
+      "model": "minecraft:block/air"
+    },
+    "facing=west,glacial=true,rotation=2,wall=true": {
+      "model": "minecraft:block/air"
+    },
+    "facing=north,glacial=true,rotation=3,wall=false": {
+      "model": "minecraft:block/air"
+    },
+    "facing=east,glacial=true,rotation=3,wall=false": {
+      "model": "minecraft:block/air"
+    },
+    "facing=south,glacial=true,rotation=3,wall=false": {
+      "model": "minecraft:block/air"
+    },
+    "facing=west,glacial=true,rotation=3,wall=false": {
+      "model": "minecraft:block/air"
+    },
+    "facing=north,glacial=true,rotation=3,wall=true": {
+      "model": "minecraft:block/air"
+    },
+    "facing=east,glacial=true,rotation=3,wall=true": {
+      "model": "minecraft:block/air"
+    },
+    "facing=south,glacial=true,rotation=3,wall=true": {
+      "model": "minecraft:block/air"
+    },
+    "facing=west,glacial=true,rotation=3,wall=true": {
+      "model": "minecraft:block/air"
+    },
+    "facing=north,glacial=true,rotation=4,wall=false": {
+      "model": "minecraft:block/air"
+    },
+    "facing=east,glacial=true,rotation=4,wall=false": {
+      "model": "minecraft:block/air"
+    },
+    "facing=south,glacial=true,rotation=4,wall=false": {
+      "model": "minecraft:block/air"
+    },
+    "facing=west,glacial=true,rotation=4,wall=false": {
+      "model": "minecraft:block/air"
+    },
+    "facing=north,glacial=true,rotation=4,wall=true": {
+      "model": "minecraft:block/air"
+    },
+    "facing=east,glacial=true,rotation=4,wall=true": {
+      "model": "minecraft:block/air"
+    },
+    "facing=south,glacial=true,rotation=4,wall=true": {
+      "model": "minecraft:block/air"
+    },
+    "facing=west,glacial=true,rotation=4,wall=true": {
+      "model": "minecraft:block/air"
+    },
+    "facing=north,glacial=true,rotation=5,wall=false": {
+      "model": "minecraft:block/air"
+    },
+    "facing=east,glacial=true,rotation=5,wall=false": {
+      "model": "minecraft:block/air"
+    },
+    "facing=south,glacial=true,rotation=5,wall=false": {
+      "model": "minecraft:block/air"
+    },
+    "facing=west,glacial=true,rotation=5,wall=false": {
+      "model": "minecraft:block/air"
+    },
+    "facing=north,glacial=true,rotation=5,wall=true": {
+      "model": "minecraft:block/air"
+    },
+    "facing=east,glacial=true,rotation=5,wall=true": {
+      "model": "minecraft:block/air"
+    },
+    "facing=south,glacial=true,rotation=5,wall=true": {
+      "model": "minecraft:block/air"
+    },
+    "facing=west,glacial=true,rotation=5,wall=true": {
+      "model": "minecraft:block/air"
+    },
+    "facing=north,glacial=true,rotation=6,wall=false": {
+      "model": "minecraft:block/air"
+    },
+    "facing=east,glacial=true,rotation=6,wall=false": {
+      "model": "minecraft:block/air"
+    },
+    "facing=south,glacial=true,rotation=6,wall=false": {
+      "model": "minecraft:block/air"
+    },
+    "facing=west,glacial=true,rotation=6,wall=false": {
+      "model": "minecraft:block/air"
+    },
+    "facing=north,glacial=true,rotation=6,wall=true": {
+      "model": "minecraft:block/air"
+    },
+    "facing=east,glacial=true,rotation=6,wall=true": {
+      "model": "minecraft:block/air"
+    },
+    "facing=south,glacial=true,rotation=6,wall=true": {
+      "model": "minecraft:block/air"
+    },
+    "facing=west,glacial=true,rotation=6,wall=true": {
+      "model": "minecraft:block/air"
+    },
+    "facing=north,glacial=true,rotation=7,wall=false": {
+      "model": "minecraft:block/air"
+    },
+    "facing=east,glacial=true,rotation=7,wall=false": {
+      "model": "minecraft:block/air"
+    },
+    "facing=south,glacial=true,rotation=7,wall=false": {
+      "model": "minecraft:block/air"
+    },
+    "facing=west,glacial=true,rotation=7,wall=false": {
+      "model": "minecraft:block/air"
+    },
+    "facing=north,glacial=true,rotation=7,wall=true": {
+      "model": "minecraft:block/air"
+    },
+    "facing=east,glacial=true,rotation=7,wall=true": {
+      "model": "minecraft:block/air"
+    },
+    "facing=south,glacial=true,rotation=7,wall=true": {
+      "model": "minecraft:block/air"
+    },
+    "facing=west,glacial=true,rotation=7,wall=true": {
+      "model": "minecraft:block/air"
+    },
+    "facing=north,glacial=true,rotation=8,wall=false": {
+      "model": "minecraft:block/air"
+    },
+    "facing=east,glacial=true,rotation=8,wall=false": {
+      "model": "minecraft:block/air"
+    },
+    "facing=south,glacial=true,rotation=8,wall=false": {
+      "model": "minecraft:block/air"
+    },
+    "facing=west,glacial=true,rotation=8,wall=false": {
+      "model": "minecraft:block/air"
+    },
+    "facing=north,glacial=true,rotation=8,wall=true": {
+      "model": "minecraft:block/air"
+    },
+    "facing=east,glacial=true,rotation=8,wall=true": {
+      "model": "minecraft:block/air"
+    },
+    "facing=south,glacial=true,rotation=8,wall=true": {
+      "model": "minecraft:block/air"
+    },
+    "facing=west,glacial=true,rotation=8,wall=true": {
+      "model": "minecraft:block/air"
+    },
+    "facing=north,glacial=true,rotation=9,wall=false": {
+      "model": "minecraft:block/air"
+    },
+    "facing=east,glacial=true,rotation=9,wall=false": {
+      "model": "minecraft:block/air"
+    },
+    "facing=south,glacial=true,rotation=9,wall=false": {
+      "model": "minecraft:block/air"
+    },
+    "facing=west,glacial=true,rotation=9,wall=false": {
+      "model": "minecraft:block/air"
+    },
+    "facing=north,glacial=true,rotation=9,wall=true": {
+      "model": "minecraft:block/air"
+    },
+    "facing=east,glacial=true,rotation=9,wall=true": {
+      "model": "minecraft:block/air"
+    },
+    "facing=south,glacial=true,rotation=9,wall=true": {
+      "model": "minecraft:block/air"
+    },
+    "facing=west,glacial=true,rotation=9,wall=true": {
+      "model": "minecraft:block/air"
+    },
+    "facing=north,glacial=true,rotation=10,wall=false": {
+      "model": "minecraft:block/air"
+    },
+    "facing=east,glacial=true,rotation=10,wall=false": {
+      "model": "minecraft:block/air"
+    },
+    "facing=south,glacial=true,rotation=10,wall=false": {
+      "model": "minecraft:block/air"
+    },
+    "facing=west,glacial=true,rotation=10,wall=false": {
+      "model": "minecraft:block/air"
+    },
+    "facing=north,glacial=true,rotation=10,wall=true": {
+      "model": "minecraft:block/air"
+    },
+    "facing=east,glacial=true,rotation=10,wall=true": {
+      "model": "minecraft:block/air"
+    },
+    "facing=south,glacial=true,rotation=10,wall=true": {
+      "model": "minecraft:block/air"
+    },
+    "facing=west,glacial=true,rotation=10,wall=true": {
+      "model": "minecraft:block/air"
+    },
+    "facing=north,glacial=true,rotation=11,wall=false": {
+      "model": "minecraft:block/air"
+    },
+    "facing=east,glacial=true,rotation=11,wall=false": {
+      "model": "minecraft:block/air"
+    },
+    "facing=south,glacial=true,rotation=11,wall=false": {
+      "model": "minecraft:block/air"
+    },
+    "facing=west,glacial=true,rotation=11,wall=false": {
+      "model": "minecraft:block/air"
+    },
+    "facing=north,glacial=true,rotation=11,wall=true": {
+      "model": "minecraft:block/air"
+    },
+    "facing=east,glacial=true,rotation=11,wall=true": {
+      "model": "minecraft:block/air"
+    },
+    "facing=south,glacial=true,rotation=11,wall=true": {
+      "model": "minecraft:block/air"
+    },
+    "facing=west,glacial=true,rotation=11,wall=true": {
+      "model": "minecraft:block/air"
+    },
+    "facing=north,glacial=true,rotation=12,wall=false": {
+      "model": "minecraft:block/air"
+    },
+    "facing=east,glacial=true,rotation=12,wall=false": {
+      "model": "minecraft:block/air"
+    },
+    "facing=south,glacial=true,rotation=12,wall=false": {
+      "model": "minecraft:block/air"
+    },
+    "facing=west,glacial=true,rotation=12,wall=false": {
+      "model": "minecraft:block/air"
+    },
+    "facing=north,glacial=true,rotation=12,wall=true": {
+      "model": "minecraft:block/air"
+    },
+    "facing=east,glacial=true,rotation=12,wall=true": {
+      "model": "minecraft:block/air"
+    },
+    "facing=south,glacial=true,rotation=12,wall=true": {
+      "model": "minecraft:block/air"
+    },
+    "facing=west,glacial=true,rotation=12,wall=true": {
+      "model": "minecraft:block/air"
+    },
+    "facing=north,glacial=true,rotation=13,wall=false": {
+      "model": "minecraft:block/air"
+    },
+    "facing=east,glacial=true,rotation=13,wall=false": {
+      "model": "minecraft:block/air"
+    },
+    "facing=south,glacial=true,rotation=13,wall=false": {
+      "model": "minecraft:block/air"
+    },
+    "facing=west,glacial=true,rotation=13,wall=false": {
+      "model": "minecraft:block/air"
+    },
+    "facing=north,glacial=true,rotation=13,wall=true": {
+      "model": "minecraft:block/air"
+    },
+    "facing=east,glacial=true,rotation=13,wall=true": {
+      "model": "minecraft:block/air"
+    },
+    "facing=south,glacial=true,rotation=13,wall=true": {
+      "model": "minecraft:block/air"
+    },
+    "facing=west,glacial=true,rotation=13,wall=true": {
+      "model": "minecraft:block/air"
+    },
+    "facing=north,glacial=true,rotation=14,wall=false": {
+      "model": "minecraft:block/air"
+    },
+    "facing=east,glacial=true,rotation=14,wall=false": {
+      "model": "minecraft:block/air"
+    },
+    "facing=south,glacial=true,rotation=14,wall=false": {
+      "model": "minecraft:block/air"
+    },
+    "facing=west,glacial=true,rotation=14,wall=false": {
+      "model": "minecraft:block/air"
+    },
+    "facing=north,glacial=true,rotation=14,wall=true": {
+      "model": "minecraft:block/air"
+    },
+    "facing=east,glacial=true,rotation=14,wall=true": {
+      "model": "minecraft:block/air"
+    },
+    "facing=south,glacial=true,rotation=14,wall=true": {
+      "model": "minecraft:block/air"
+    },
+    "facing=west,glacial=true,rotation=14,wall=true": {
+      "model": "minecraft:block/air"
+    },
+    "facing=north,glacial=true,rotation=15,wall=false": {
+      "model": "minecraft:block/air"
+    },
+    "facing=east,glacial=true,rotation=15,wall=false": {
+      "model": "minecraft:block/air"
+    },
+    "facing=south,glacial=true,rotation=15,wall=false": {
+      "model": "minecraft:block/air"
+    },
+    "facing=west,glacial=true,rotation=15,wall=false": {
+      "model": "minecraft:block/air"
+    },
+    "facing=north,glacial=true,rotation=15,wall=true": {
+      "model": "minecraft:block/air"
+    },
+    "facing=east,glacial=true,rotation=15,wall=true": {
+      "model": "minecraft:block/air"
+    },
+    "facing=south,glacial=true,rotation=15,wall=true": {
+      "model": "minecraft:block/air"
+    },
+    "facing=west,glacial=true,rotation=15,wall=true": {
       "model": "minecraft:block/air"
     }
   }

@@ -1,0 +1,13 @@
+{
+  "type": "myriadbloom:time_void",
+  "generator": {
+    "type": "minecraft:flat",
+    "settings": {
+      "layers": [],
+      "biome": "myriadbloom:time_void",
+      "features": false,
+      "lakes": false,
+      "structure_overrides": []
+    }
+  }
+}

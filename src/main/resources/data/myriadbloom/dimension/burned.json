@@ -1,0 +1,14 @@
+{
+  "type": "myriadbloom:burned",
+  "generator": {
+    "type": "minecraft:noise",
+    "biome_source": {
+      "type": "myriadbloom:burned_biome_source",
+      "biomes": [
+        "myriadbloom:burned_land",
+        "myriadbloom:burned_deltas"
+      ]
+    },
+    "settings": "myriadbloom:burned"
+  }
+}

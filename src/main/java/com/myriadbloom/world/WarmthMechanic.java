@@ -253,6 +253,21 @@ public final class WarmthMechanic implements EnvironmentMechanic {
                 }
             }
         }
+        // 永不熄灭的炉心：范围扩大到 50x50（半径 25），用步长 2 粗扫以控制开销
+        int coreRadius = 25;
+        for (int dx = -coreRadius; dx <= coreRadius; dx += 2) {
+            for (int dz = -coreRadius; dz <= coreRadius; dz += 2) {
+                if (dx * dx + dz * dz > coreRadius * coreRadius) {
+                    continue;
+                }
+                for (int dy = -VERTICAL_SCAN; dy <= VERTICAL_SCAN; dy += 2) {
+                    cursor.set(center.getX() + dx, center.getY() + dy, center.getZ() + dz);
+                    if (level.getBlockState(cursor).is(com.myriadbloom.FrostedLandContent.EVERBURNING_CORE.get())) {
+                        return new HeatScan(true, true);
+                    }
+                }
+            }
+        }
         return new HeatScan(false, ember);
     }
 

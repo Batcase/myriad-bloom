@@ -41,6 +41,11 @@ public final class CongealedClientEvents {
 
     @SubscribeEvent
     public static void onFogColor(ViewportEvent.ComputeFogColor event) {
+        var mc = net.minecraft.client.Minecraft.getInstance();
+        if (mc.player != null && (mc.player.isCreative() || mc.player.isSpectator())) {
+            return;
+        }
+
         Entity camera = event.getCamera().getEntity();
         if (camera == null || !MyriadBloomApi.isMyriadBloom(camera.level())) {
             return;

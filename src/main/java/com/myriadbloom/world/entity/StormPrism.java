@@ -86,6 +86,7 @@ public class StormPrism extends Monster {
         super(type, level);
         this.xpReward = 500;
         this.setNoGravity(true);
+        this.setPersistenceRequired();
     }
 
     public static AttributeSupplier.Builder prismAttributes() {
@@ -325,6 +326,7 @@ public class StormPrism extends Monster {
             if (source.getEntity() instanceof ServerPlayer killer) {
                 com.myriadbloom.world.AdvancementAward.award(killer, "storm_prism_slain");
             }
+            spawnLootChest(server);
         }
         super.die(source);
     }
@@ -344,5 +346,25 @@ public class StormPrism extends Monster {
     protected void checkFallDamage(double y, boolean onGround, net.minecraft.world.level.block.state.BlockState state,
                                    BlockPos pos) {
         // it never falls
+    }
+
+    /** 死亡原地生成巨木箱，并填入风暴棱镜的战利品表。 */
+    private void spawnLootChest(net.minecraft.server.level.ServerLevel server) {
+        net.minecraft.core.BlockPos base = this.blockPosition();
+        for (int dy = 0; dy >= -4; dy--) {
+            net.minecraft.core.BlockPos candidate = base.offset(0, dy, 0);
+            if (server.getBlockState(candidate).canBeReplaced()
+                    && server.getBlockState(candidate.below()).isSolid()) {
+                server.setBlock(candidate, com.myriadbloom.BossContent.GIANT_CHEST.get().defaultBlockState(), 3);
+                if (server.getBlockEntity(candidate)
+                        instanceof com.myriadbloom.world.block.GiantChestBlockEntity chest) {
+                    chest.setLootTable(net.minecraft.resources.ResourceKey.create(
+                                    net.minecraft.core.registries.Registries.LOOT_TABLE,
+                                    com.myriadbloom.api.MyriadBloomApi.id("chests/storm_prism")),
+                            server.getRandom().nextLong());
+                }
+                return;
+            }
+        }
     }
 }

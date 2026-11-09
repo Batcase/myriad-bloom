@@ -174,11 +174,6 @@ public class CongealedLandFeature extends Feature<NoneFeatureConfiguration> {
             }
         }
 
-        // the chunk holding the middle of the patch also builds the boss altar
-        if (chunkX == (centre[0] >> 4) && chunkZ == (centre[1] >> 4)) {
-            buildAltar(level, centre[0], baseHeight, centre[1], ice);
-            placed = true;
-        }
         return placed;
     }
 

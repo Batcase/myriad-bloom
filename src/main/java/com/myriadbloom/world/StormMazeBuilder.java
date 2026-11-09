@@ -218,6 +218,10 @@ public final class StormMazeBuilder {
                 }
             }
         }
+        // 入口封上锁孔，需要冰霜之钥才能打开
+        level.setBlock(new BlockPos(centreX, top, centreZ),
+                com.myriadbloom.FrostedLandContent.MAZE_LOCK.get().defaultBlockState(), 2);
+
         // 2) 再沿螺旋逐级放台阶：每级下降一格，每圈八级
         int steps = top - StormMaze.FLOOR_Y;
         for (int i = 0; i < steps; i++) {

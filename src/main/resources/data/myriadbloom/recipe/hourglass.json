@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "PSP",
+    "SKS",
+    "PSP"
+  ],
+  "key": {
+    "P": {
+      "item": "myriadbloom:prism_shard"
+    },
+    "S": {
+      "item": "myriadbloom:time_sand"
+    },
+    "K": {
+      "item": "myriadbloom:ice_core"
+    }
+  },
+  "result": {
+    "id": "myriadbloom:hourglass",
+    "count": 1
+  }
+}

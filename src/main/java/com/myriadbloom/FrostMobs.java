@@ -206,6 +206,16 @@ public final class FrostMobs {
                             .fireImmune()
                             .build("magic_circle"));
 
+    /** 时间维护者：时之虚空的 BOSS。 */
+    public static final net.neoforged.neoforge.registries.DeferredHolder<EntityType<?>,
+            EntityType<com.myriadbloom.world.entity.TimeKeeper>> TIME_KEEPER =
+            MyriadBloom.ENTITY_TYPES.register("time_keeper",
+                    () -> EntityType.Builder.of(com.myriadbloom.world.entity.TimeKeeper::new, MobCategory.MONSTER)
+                            .sized(4.0F, 6.0F)
+                            .clientTrackingRange(16)
+                            .fireImmune()
+                            .build("time_keeper"));
+
     @SubscribeEvent
     public static void onAttributeCreation(EntityAttributeCreationEvent event) {
         event.put(FRENZIED_SNOW_GOLEM.get(), FrenziedSnowGolem.frenziedAttributes().build());
@@ -219,6 +229,7 @@ public final class FrostMobs {
         event.put(SNOW_RABBIT.get(), SnowRabbit.snowRabbitAttributes().build());
         event.put(STORM_PRISM.get(), StormPrism.prismAttributes().build());
         event.put(SEALED_MAIDEN.get(), com.myriadbloom.world.entity.SealedMaiden.maidenAttributes().build());
+        event.put(TIME_KEEPER.get(), com.myriadbloom.world.entity.TimeKeeper.keeperAttributes().build());
     }
 
     public static void bootstrap() {

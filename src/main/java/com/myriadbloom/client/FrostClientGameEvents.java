@@ -30,6 +30,11 @@ public final class FrostClientGameEvents {
 
     @SubscribeEvent
     public static void onRenderFog(ViewportEvent.RenderFog event) {
+        var mc = net.minecraft.client.Minecraft.getInstance();
+        if (mc.player != null && (mc.player.isCreative() || mc.player.isSpectator())) {
+            return;
+        }
+
         if (!inRealm(event)) {
             return;
         }

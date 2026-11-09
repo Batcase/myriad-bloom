@@ -8,6 +8,7 @@
     "minecraft:furnace",
     "minecraft:blast_furnace",
     "minecraft:smoker",
-    "myriadbloom:ember_ore"
+    "myriadbloom:ember_ore",
+    "myriadbloom:everburning_core"
   ]
 }

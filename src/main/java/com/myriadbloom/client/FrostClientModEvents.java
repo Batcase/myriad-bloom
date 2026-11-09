@@ -35,6 +35,10 @@ public final class FrostClientModEvents {
             ResourceLocation.fromNamespaceAndPath(MyriadBloom.MODID, "candy_cow_lollipops"), "main");
 
     /** Model layer of the ten block tall origin ape. */
+    /** Model layer of 时间维护者. */
+    public static final ModelLayerLocation TIME_KEEPER = new ModelLayerLocation(
+            ResourceLocation.fromNamespaceAndPath(MyriadBloom.MODID, "time_keeper"), "main");
+
     public static final ModelLayerLocation SEALED_MAIDEN = new ModelLayerLocation(
             ResourceLocation.fromNamespaceAndPath(MyriadBloom.MODID, "sealed_maiden"), "main");
 
@@ -42,10 +46,18 @@ public final class FrostClientModEvents {
             ResourceLocation.fromNamespaceAndPath(MyriadBloom.MODID, "origin_ape"), "main");
 
     @SubscribeEvent
+    public static void registerDimensionEffects(
+            net.neoforged.neoforge.client.event.RegisterDimensionSpecialEffectsEvent event) {
+        event.register(com.myriadbloom.api.MyriadBloomApi.id("burned"), new BurnedSkyEffects());
+        event.register(com.myriadbloom.api.MyriadBloomApi.id("time_void"), new TimeVoidSkyEffects());
+    }
+
+    @SubscribeEvent
     public static void registerLayerDefinitions(EntityRenderersEvent.RegisterLayerDefinitions event) {
         event.registerLayerDefinition(CANDY_COW_LOLLIPOPS, CandyCowLollipopLayer::createLayer);
         event.registerLayerDefinition(OriginApeTrophyLayer.LAYER, OriginApeTrophyLayer::createBodyLayer);
         event.registerLayerDefinition(SEALED_MAIDEN, SealedMaidenModel::createBodyLayer);
+        event.registerLayerDefinition(TIME_KEEPER, TimeKeeperModel::createBodyLayer);
         event.registerLayerDefinition(GlacialTrophyLayer.LAYER, GlacialTrophyLayer::createBodyLayer);
         event.registerLayerDefinition(GLACIAL_CONGLOMERATION, GlacialConglomerationModel::createBodyLayer);
         event.registerLayerDefinition(ORIGIN_APE, OriginApeModel::createBodyLayer);

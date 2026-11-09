@@ -35,6 +35,9 @@ public final class BlizzardMechanic implements EnvironmentMechanic {
             return;
         }
         for (ServerPlayer player : level.players()) {
+            if (player.isCreative() || player.isSpectator()) {
+                continue;
+            }
             Vec3 pos = player.position();
             double x = pos.x + (level.random.nextDouble() - 0.5D) * 20.0D;
             double y = pos.y + 4.0D + level.random.nextDouble() * 8.0D;

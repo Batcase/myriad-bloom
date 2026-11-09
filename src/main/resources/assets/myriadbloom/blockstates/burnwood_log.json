@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=y": {
+      "model": "myriadbloom:block/burnwood_log"
+    },
+    "axis=z": {
+      "model": "myriadbloom:block/burnwood_log",
+      "x": 90
+    },
+    "axis=x": {
+      "model": "myriadbloom:block/burnwood_log",
+      "x": 90,
+      "y": 90
+    }
+  }
+}
